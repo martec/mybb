@@ -21,7 +21,7 @@
             {# Go to unread link #}
             {% if thread.unread %}
                 <a href="{{ thread.newpostlink|raw }}" class="thread__status">
-                    {{ include('partials/icon.twig', {icon: 'circle', class: '', title: lang.goto_first_unread}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'circle', class: '', title: lang.goto_first_unread}, with_context = false) }}
                 </a>
             {% endif %}
 
@@ -34,32 +34,32 @@
 
                 {# Contains posts by you #}
                 {% if 'dot' in thread.folder.value %}
-                    {{ include('partials/icon.twig', {icon: 'user-circle', class: 'thread__icon fa-fw', title: lang.posts_by_you}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'user-circle', class: 'thread__icon fa-fw', title: lang.posts_by_you}, with_context = false) }}
                 {% endif %}
 
                 {# Attachment paperclip #}
                 {% if mybb.settings.enableattachments and thread.attachmentcount %}
-                    {{ include('partials/icon.twig', {icon: 'paperclip', class: 'thread__icon fa-fw', title: thread.attachmentcount}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'paperclip', class: 'thread__icon fa-fw', title: thread.attachmentcount}, with_context = false) }}
                 {% endif %}
 
                 {# Hot thread #}
                 {% if 'hot' in thread.folder.value %}
-                    {{ include('partials/icon.twig', {icon: 'fire', class: 'thread__icon fa-fw', title: lang.hot}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'fire', class: 'thread__icon fa-fw', title: lang.hot}, with_context = false) }}
                 {% endif %}
 
                 {# Poll #}
                 {% if thread.poll %}
-                    {{ include('partials/icon.twig', {icon: 'check-square', class: 'thread__icon fa-fw', title: lang.poll_prefix}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'check-square', class: 'thread__icon fa-fw', title: lang.poll_prefix}, with_context = false) }}
                 {% endif %}
 
                 {# Closed #}
                 {% if thread.closed  %}
-                    {{ include('partials/icon.twig', {icon: 'lock', class: 'thread__icon fa-fw', title: lang.closed}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'lock', class: 'thread__icon fa-fw', title: lang.closed}, with_context = false) }}
                 {% endif %}
 
                 {# Sticky #}
                 {% if thread.sticky %}
-                    {{ include('partials/icon.twig', {icon: 'thumbtack', class: 'thread__icon thread__icon--sticky fa-fw', title: lang.sticky}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'thumbtack', class: 'thread__icon thread__icon--sticky fa-fw', title: lang.sticky}, with_context = false) }}
                 {% endif %}
             </span>
         </h3>

@@ -1,4 +1,4 @@
-{% extends 'layouts/account.twig' %}
+{% extends 'layouts_account' %}
 
 {% block head %}
     <title>{{ lang.edit_options }} - {{ mybb.settings.bbname }}</title>
@@ -45,7 +45,7 @@
                     <div class="row row--form field">
                         <h3 class="field__name"><label for="subscriptionmethod">{{ lang.subscription_method }}</label></h3>
                         <div class="select-field">
-                            {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="subscriptionmethod" id="subscriptionmethod">
                                 <option value="0"{% if user.subscriptionmethod not in [1, 2, 3] %} selected{% endif %}>{{ lang.no_auto_subscribe }}</option>
                                 <option value="1"{% if user.subscriptionmethod == 1 %} selected{% endif %}>{{ lang.no_subscribe }}</option>
@@ -62,7 +62,7 @@
                     <div class="row row--form field">
                         <h3 class="field__name"><label for="dateformat">{{ lang.date_format }}</label></h3>
                         <div class="select-field">
-                            {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="dateformat">
                                 <option value="0">{{ lang.use_default }}</option>
                                 {% for key, format in date_formats %}
@@ -75,7 +75,7 @@
                     <div class="row row--form field">
                         <h3 class="field__name"><label for="timeformat">{{ lang.time_format }}</label></h3>
                         <div class="select-field">
-                            {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="timeformat">
                                 <option value="0">{{ lang.use_default }}</option>
                                 {% for key, format in time_formats %}
@@ -89,7 +89,7 @@
                         <h3 class="field__name"><label for="timezone">{{ lang.time_offset|raw }}</label></h3>
                         <p class="field__description">{{ lang.time_offset_desc }}</p>
                         <div class="select-field">
-                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="timezoneoffset" id="timezone">
                                 {% for timezone in timezones %}
                                     <option value="{{ timezone.timezone }}"{% if timezone.selected %} selected{% endif %}>{{ timezone.label }}</option>
@@ -100,7 +100,7 @@
                     <div class="row row--form field">
                         <h3 class="field__name">{{ lang.dst_correction }}</h3>
                         <div class="select-field">
-                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="dstcorrection">
                                 <option value="2"{% if user.dstcorrection == 2 %} selected{% endif %}>{{ lang.dst_correction_auto }}</option>
                                 <option value="1"{% if user.dstcorrection == 1 %} selected{% endif %}>{{ lang.dst_correction_enabled }}</option>
@@ -117,7 +117,7 @@
                         <div class="row row--form field">
                             <h3 class="field__name"><label for="tpp">{{ lang.tpp }}</label></h3>
                             <div class="select-field">
-                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                 <select name="tpp" id="tpp">
                                     <option value="">{{ lang.use_default }}</option>
                                     {% for key, val in mybb.settings.usertppoptions|split(',') %}
@@ -130,7 +130,7 @@
                     <div class="row row--form field">
                         <h3 class="field__name">{{ lang.thread_view }}</h3>
                         <div class="select-field">
-                            {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="daysprune" id="daysprune">
                                 <option value="">{{ lang.use_default }}</option>
                                 {% for day in [1, 5, 10, 20, 50, 75, 100, 365, 9999] %}
@@ -168,7 +168,7 @@
                         <div class="row row--form field">
                             <h3 class="field__name"><label for="ppp">{{ lang.ppp }}</label></h3>
                             <div class="select-field">
-                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                 <select name="ppp" id="ppp">
                                     <option value="">{{ lang.use_default }}</option>
                                     {% for key, val in mybb.settings.userpppoptions|split(',') %}
@@ -181,7 +181,7 @@
                     <div class="row row--form field">
                         <h3 class="field__name"><label for="threadmode">{{ lang.thread_mode }}</label></h3>
                         <div class="select-field">
-                            {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="threadmode" id="threadmode">
                                 <option value="">{{ lang.use_default }}</option>
                                 <option value="linear"{% if user.threadmode == 'linear' %} selected{% endif %}>{{ lang.linear }}</option>
@@ -203,7 +203,7 @@
                         <div class="row row--form field">
                             <h3 class="field__name">{{ lang.style }}</h3>
                             <div class="select-field">
-                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                 {{ stylelist|raw }}
                             </div>
                         </div>
@@ -212,7 +212,7 @@
                         <div class="row row--form field">
                             <h3 class="field__name">{{ lang.board_language }}</h3>
                             <div class="select-field">
-                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                 <select name="language">
                                     <option value="">{{ lang.use_default }}</option>
                                     <option value="0">-----------</option>
@@ -228,7 +228,7 @@
             <div class="form__submit">
                 <input type="hidden" name="action" value="do_options" />
                 <button type="submit" class="button button--medium" name="regsubmit">
-                    {{ include('partials/icon.twig', {icon: 'sliders-h', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'sliders-h', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.update_options }}</span>
                 </button>
             </div>

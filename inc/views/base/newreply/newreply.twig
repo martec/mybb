@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ trans('post_reply_to', thread.subject) }} - {{ mybb.settings.bbname }}</title>
@@ -29,7 +29,7 @@
         {{ reply_errors|raw }}
         {% if newreply.showmodnotice %}
             <div class="alert alert--red-alert">
-                {{ include('partials/icon.twig', {icon: 'exclamation-triangle', class: 'alert__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'exclamation-triangle', class: 'alert__icon'}, with_context = false) }}
                 <div class="alert__message">{{ newreply.moderation_text }}</div>
             </div>
         {% endif %}
@@ -59,7 +59,7 @@
 
                     {% if newreply.showposticons %}
                         {% set emptyiconcheck = newreply.emptyiconcheck %}
-                        {% include 'misc/posticons.twig' %}
+                        {% include 'misc_posticons' %}
                     {% endif %}
 
                     <div class="row row--form field">
@@ -80,27 +80,27 @@
                         <div class="compose__option-buttons">
                             {% if newreply.showpostoptions %}
                                 <label for="show-post-options" class="button button--basic compose__option-button--options">
-                                    {{ include('partials/icon.twig', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.options }}</span>
                                 </label>
                             {% endif %}
 
                             {% if newreply.showattachments %}
                                 <label for="show-attachments" class="button button--basic compose__option-button--attachments">
-                                    {{ include('partials/icon.twig', {icon: 'paperclip', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'paperclip', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.upload_attachments }}</span>
                                 </label>
                             {% endif %}
 
                             {% if mybb.user.uid %}
                                 <button type="submit" name="savedraft" value="draft" class="button button--basic">
-                                    {{ include('partials/icon.twig', {icon: 'file', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'file', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.save_draft }}</span>
                                 </button>
                             {% endif %}
 
                             <button type="submit" name="previewpost" value="preview" class="button button--basic">
-                                {{ include('partials/icon.twig', {icon: 'edit', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'edit', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.preview_post }}</span>
                             </button>
                         </div>
@@ -160,18 +160,18 @@
                 {% endif %}
 
                 {% if mybb.user.uid %}
-                    {% include 'misc/subscriptionmethod.twig' %}
+                    {% include 'misc_subscriptionmethod' %}
                 {% endif %}
 
                 {{ captcha|raw }}
 
                 {% if newreply.showattachments %}
-                    {% include 'misc/attachments.twig' %}
+                    {% include 'misc_attachments' %}
                 {% endif %}
 
                 <div class="form__submit">
                     <button type="submit" class="button button--big" name="submit" tabindex="3" accesskey="s">
-                        {{ include('partials/icon.twig', {icon: 'comment', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'comment', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.post_reply }}</span>
                     </button>
                 </div>

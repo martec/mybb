@@ -1,4 +1,4 @@
-{% extends 'layouts/messenger.twig' %}
+{% extends 'layouts_messenger' %}
 
 {% block head %}
     <title>{{ lang.archive_messages }} - {{ mybb.settings.bbname }}</title>
@@ -30,7 +30,7 @@
                 <div class="row row--form field">
                     <h3 class="field__name">{{ lang.date_limit }}</h3>
                     <div class="select-field">
-                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                         <select name="dayway">
                             <option value="older">{{ lang.date_limit_older }}</option>
                             <option value="newer">{{ lang.date_limit_newer }}</option>
@@ -62,7 +62,7 @@
             </section>
             <div class="form__submit">
                 <button type="submit" class="button button--medium" name="submit">
-                    {{ include('partials/icon.twig', {icon: 'download', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'download', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.archive_messages }}</span>
                 </button>
             </div>

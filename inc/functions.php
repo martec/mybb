@@ -65,7 +65,7 @@ function output_page($contents)
 			$debug_weight = $lang->sprintf($lang->debug_weight, $percentphp, $percentsql, $database_server);
 			$sql_queries = $lang->sprintf($lang->debug_sql_queries, $db->query_count);
 
-			$debugstuff = \MyBB\template('misc/debugsummary.twig', [
+			$debugstuff = \MyBB\template('misc_debugsummary', [
 				'debug_weight' => $debug_weight,
 				'sql_queries' => $sql_queries,
 				'serverload' => $serverload,
@@ -881,7 +881,7 @@ function error($error_message = "", $title = "", $error_page = "")
 	reset_breadcrumb();
 	add_breadcrumb($lang->error);
 
-	output_page(\MyBB\template('error/error.twig', [
+	output_page(\MyBB\template('error_error', [
 		'title' => $title,
 		'error_message' => $error_message,
 		'error_page' => $error_page,
@@ -929,7 +929,7 @@ function inline_error($errors, $title = "", $json_data = array())
 		'list' => $errors
 	];
 
-	$errors = \MyBB\template('error/inline.twig', [
+	$errors = \MyBB\template('error_inline', [
 		'errors' => $data
 	]);
 
@@ -991,9 +991,9 @@ function error_no_permission()
 		}
 	}
 
-	$error_message = \MyBB\template('error/no_permission_message.twig');
+	$error_message = \MyBB\template('error_no_permission_message');
 
-	$error_page = \MyBB\template('error/no_permission.twig', [
+	$error_page = \MyBB\template('error_no_permission', [
 		'username' => $username,
 		'redirect_url' => $redirect_url
 	]);
@@ -1056,7 +1056,7 @@ function redirect($url, $message = "", $title = "", $force_redirect = false)
 	{
 		$url = str_replace("&amp;", "&", $url);
 
-		output_page(\MyBB\template('misc/redirect.twig', [
+		output_page(\MyBB\template('misc_redirect', [
 			'url' => $url,
 			'title' => $title,
 			'message' => $message
@@ -1198,7 +1198,7 @@ function multipage($count, $perpage, $page, $url, $breadcrumb = false)
 		$multipage['jump_url'] = fetch_page_url($url, 1);
 	}
 
-	return \MyBB\template('partials/multipage.twig', [
+	return \MyBB\template('partials_multipage', [
 		'multipage' => $multipage,
 		'page' => $page,
 		'breadcrumb' => $breadcrumb,
@@ -1839,7 +1839,7 @@ function check_forum_password($fid, $pid = 0, $return = false)
 		else
 		{
 			$currentUrl = $_SERVER['REQUEST_URI'];
-			output_page(\MyBB\template('forumdisplay/password.twig', [
+			output_page(\MyBB\template('forumdisplay_password', [
 				'pwnote' => $pwnote,
 				'currentUrl' => $currentUrl
 			]));
@@ -3282,7 +3282,7 @@ function build_forum_jump($pid = 0, $selitem = 0, $addselect = 1, $depth = "", $
 				if($forum['fid'] != "0" && ($perms['canview'] != 0 || $mybb->settings['hideprivateforums'] == 0) && $forum['linkto'] == '' && ($forum['showinjump'] != 0 || $showall == true))
 				{
 
-					$forumjumpbits .= \MyBB\template('misc/forumjump_bit.twig', [
+					$forumjumpbits .= \MyBB\template('misc_forumjump_bit', [
 						'forum' => $forum,
 						'selitem' => $selitem,
 						'depth' => $depth
@@ -3312,7 +3312,7 @@ function build_forum_jump($pid = 0, $selitem = 0, $addselect = 1, $depth = "", $
 			}
 		}
 
-		$forumjump = \MyBB\template('misc/forumjump.twig', [
+		$forumjump = \MyBB\template('misc_forumjump', [
 			'showextras' => $showextras,
 			'forumjumpbits' => $forumjumpbits,
 			'forum_link' => $forum_link,
@@ -3745,7 +3745,7 @@ function build_mycode_inserter($bind = "message", $smilies = true)
 				$toolbar['code'] = "code,php,";
 			}
 
-			$codeinsert = \MyBB\template('misc/codebuttons.twig', [
+			$codeinsert = \MyBB\template('misc_codebuttons', [
 				'toolbar' => $toolbar,
 				'emoticons' => $emoticons,
 				'editor_language' => $editor_language,
@@ -3873,7 +3873,7 @@ function build_clickable_smilies()
 				}
 			}
 
-			$clickablesmilies = \MyBB\template('smilieinsert/main.twig', [
+			$clickablesmilies = \MyBB\template('smilieinsert_main', [
 				'smilies' => $smilies,
 				'smiliecount' => $smiliecount
 			]);
@@ -4067,7 +4067,7 @@ function build_forum_prefix_select($fid, $selected_pid = 0)
 
 	$prefixes = array_merge($default, $prefixes);
 
-	return \MyBB\template('forumdisplay/threadlist_prefixes.twig', [
+	return \MyBB\template('forumdisplay_threadlist_prefixes', [
 		'prefixes' => $prefixes,
 		'selected' => (int)$selected_pid
 	]);
@@ -4207,7 +4207,7 @@ function log_moderator_action($data, $action = "")
  */
 function get_reputation($reputation, $uid = 0)
 {
-	return \MyBB\template('postbit/reputation.twig', [
+	return \MyBB\template('postbit_reputation', [
 		'uid' => (int)$uid,
 		'reputation' => $reputation
 	]);
@@ -4221,7 +4221,7 @@ function get_reputation($reputation, $uid = 0)
  */
 function get_colored_warning_level($level)
 {
-	return \MyBB\template('postbit/warninglevel.twig', [
+	return \MyBB\template('postbit_warninglevel', [
 		'level' => $level
 	]);
 }
@@ -4449,7 +4449,7 @@ function get_attachment_icon($ext)
 		$name = $lang->unknown;
 	}
 
-	return \MyBB\template('misc/attachment_icon.twig', [
+	return \MyBB\template('misc_attachment_icon', [
 		'ext' => $ext,
 		'icon' => $icon,
 		'name' => $name
@@ -5330,7 +5330,7 @@ function build_theme_select($name, $selected = -1, $tid = 0, $depth = "", $userg
 
 	if($tid == 1 && ($num_themes > 1 || $count_override == true))
 	{
-		return \MyBB\template('misc/themeselect.twig', [
+		return \MyBB\template('misc_themeselect', [
 			'footer' => $footer,
 			'selected' => $selected,
 			'options' => $themeselect_options,

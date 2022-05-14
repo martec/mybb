@@ -110,7 +110,7 @@ if($mybb->get_input('action') == "today")
 
 	$plugins->run_hooks("online_today_end");
 
-	output_page(\MyBB\template('online/today.twig', [
+	output_page(\MyBB\template('online_today', [
 		'online_today' => $onlinetoday,
 		'online_today_users' => $online_today_users,
 		'multipage' => $multipage,
@@ -310,7 +310,7 @@ else
 
 	$plugins->run_hooks("online_end");
 
-	output_page(\MyBB\template('online/online.twig', [
+	output_page(\MyBB\template('online_online', [
 		'refresh_string' => $refresh_string,
 		'online_users' => $online_rows,
 		'multipage' => $multipage,

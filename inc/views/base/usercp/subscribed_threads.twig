@@ -1,4 +1,4 @@
-{% extends 'layouts/account.twig' %}
+{% extends 'layouts_account' %}
 
 {% block head %}
     <title>{{ lang.subscriptions }} - {{ mybb.settings.bbname }}</title>
@@ -12,7 +12,7 @@
 
 {% block accountBody %}
 
-    {% include 'usercp/subscribed_menu.twig' %}
+    {% include 'usercp_subscribed_menu' %}
 
     {{ multipage|raw }} {# TODO: improve multipage so that `|raw` isn't required - perhaps make it a Twig function? #}
     <form action="usercp.php" method="post" name="input">
@@ -35,7 +35,7 @@
             </div>
             <div class="thread-list__container">
                 {% for thread in threads %}
-                    {% include 'usercp/subscribed_threads/row.twig' %}
+                    {% include 'usercp_subscribed_threads_row' %}
                 {% else %}
                     <div class="alert alert--no-results alert--aligned-block">{{ lang.no_thread_subscriptions|raw }}</div>
                 {% endfor %}
@@ -43,7 +43,7 @@
             <div class="sort-results">
                 <h3 class="sort-results__title">{{ lang.with_selected }}</h3>
                 <div class="select-field">
-                    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                     <select name="do" id="do">
                         <option value="delete">{{ lang.delete_subscriptions }}</option>
                         <option value="no_notification">{{ lang.update_no_notification }}</option>
@@ -57,7 +57,7 @@
         <div class="page-controls">
             <div class="page-buttons">
                 <a href="usercp2.php?action=removesubscriptions&amp;my_post_key={{ mybb.post_code }}" class="button">
-                    {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.remove_all_subscriptions }}</span>
                 </a>
             </div>

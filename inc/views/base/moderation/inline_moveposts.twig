@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.move_posts }} - {{ mybb.settings.bbname }}</title>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="form__submit">
                     <button type="submit" class="button button--medium">
-                        {{ include('partials/icon.twig', {icon: 'arrow-right', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'arrow-right', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.move_posts }}</span>
                     </button>
                 </div>

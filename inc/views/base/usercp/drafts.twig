@@ -1,4 +1,4 @@
-{% extends 'layouts/account.twig' %}
+{% extends 'layouts_account' %}
 
 {% block head %}
     <title>{{ lang.drafts }} - {{ mybb.settings.bbname }}</title>
@@ -21,7 +21,7 @@
             </div>
             <div class="results">
                 {% for draft in drafts %}
-                    {% include 'usercp/drafts/row.twig' %}
+                    {% include 'usercp_drafts_row' %}
                 {% else %}
                     <div class="alert alert--no-results alert--aligned-block">{{ lang.no_drafts|raw }}</div>
                 {% endfor %}
@@ -29,7 +29,7 @@
             <div class="sort-results">
                 <input type="hidden" name="action" value="do_drafts" />
                 <button type="submit" name="draftman" class="button"{% if not deleteDraftsEnabled %} disabled{% endif %}>
-                    {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.delete_drafts }}</span>
                 </button>
             </div>

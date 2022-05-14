@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ mybb.settings.bbname }}</title>
@@ -12,7 +12,7 @@
         {% if (mybb.settings.showwol and mybb.usergroup.canviewonline) %}
             <div class="board-statistics__section">
                 <h3 class="board-statistics__title">
-                    {{ include('partials/icon.twig', {icon: 'users', class: 'board-statistics__icon fa-fw'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'users', class: 'board-statistics__icon fa-fw'}, with_context = false) }}
                     <a href="online.php">{{ lang.whos_online }}</a>
                 </h3>
                 <p class="board-statistics__body board-statistics__body--active-note">{{ lang.online_note }}</p>
@@ -37,7 +37,7 @@
         {% if birthdays or hiddencount %}
             <div class="board-statistics__section">
                 <h3 class="board-statistics__title">
-                    {{ include('partials/icon.twig', {icon: 'birthday-cake', class: 'board-statistics__icon fa-fw'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'birthday-cake', class: 'board-statistics__icon fa-fw'}, with_context = false) }}
                     {{ lang.todays_birthdays }}
                 </h3>
                 <p class="board-statistics__body">
@@ -52,7 +52,7 @@
         {% if mybb.settings.showindexstats %}
             <div class="board-statistics__section">
                 <h3 class="board-statistics__title">
-                    {{ include('partials/icon.twig', {icon: 'chart-bar', class: 'board-statistics__icon fa-fw'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'chart-bar', class: 'board-statistics__icon fa-fw'}, with_context = false) }}
                     <a href="stats.php">{{ lang.boardstats }}</a>
                 </h3>
                 <p class="board-statistics__body">
@@ -69,13 +69,13 @@
         <div class="page-buttons">
             {% if mybb.user.uid != 0 %}
                 <a href="member.php?action=logout&amp;logoutkey={{ mybb.user.logoutkey }}" class="button button--basic">
-                    {{ include('partials/icon.twig', {icon: 'sign-out-alt', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'sign-out-alt', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.index_logout }}</span>
                 </a>
             {% endif %}
             {% if mybb.settings.statsenabled %}
                 <a href="stats.php" class="button button--basic">
-                    {{ include('partials/icon.twig', {icon: 'chart-bar', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'chart-bar', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.forumstats }}</span>
                 </a>
             {% endif %}

@@ -588,7 +588,7 @@ if($mybb->input['action'] == "reports")
 
 	$report['page'] = $page;
 
-	output_page(\MyBB\template('modcp/reports.twig', [
+	output_page(\MyBB\template('modcp_reports', [
 		'report' => $report,
 		'multipage' => $multipage,
 		'reports' => $reports,
@@ -750,7 +750,7 @@ if($mybb->input['action'] == "allreports")
 
 	$plugins->run_hooks('modcp_allreports_end');
 
-	output_page(\MyBB\template('modcp/allreports.twig', [
+	output_page(\MyBB\template('modcp_allreports', [
 		'multipage' => $multipage,
 		'allreports' => $allreports,
 	]));
@@ -979,7 +979,7 @@ if($mybb->input['action'] == "modlogs")
 
 	$forum_select = build_forum_jump("", $mybb->get_input('fid', MyBB::INPUT_INT), 1, '', 0, true, '', "fid");
 
-	output_page(\MyBB\template('modcp/modlogs.twig', [
+	output_page(\MyBB\template('modcp_modlogs', [
 		'multipage' => $multipage,
 		'modlogs' => $modlogs,
 		'select' => $select,
@@ -1044,7 +1044,7 @@ if($mybb->input['action'] == "delete_announcement")
 
 	$plugins->run_hooks('modcp_delete_announcement');
 
-	output_page(\MyBB\template('modcp/announcements_delete.twig', [
+	output_page(\MyBB\template('modcp_announcements_delete', [
 		'announcement' => $announcement
 	]));
 }
@@ -1329,7 +1329,7 @@ if($mybb->input['action'] == "new_announcement")
 
 	$plugins->run_hooks('modcp_new_announcement');
 
-	output_page(\MyBB\template('modcp/announcements_add.twig', [
+	output_page(\MyBB\template('modcp_announcements_add', [
 		'announcement' => $announcement,
 		'preview' => $preview,
 		'codebuttons' => $codebuttons,
@@ -1650,7 +1650,7 @@ if($mybb->input['action'] == "edit_announcement")
 
 	$plugins->run_hooks('modcp_edit_announcement');
 
-	output_page(\MyBB\template('modcp/announcements_edit.twig', [
+	output_page(\MyBB\template('modcp_announcements_edit', [
 		'announcement' => $announcement,
 		'preview' => $preview,
 		'codebuttons' => $codebuttons,
@@ -1694,7 +1694,7 @@ if($mybb->input['action'] == "announcements")
 
 	$plugins->run_hooks('modcp_announcements');
 
-	output_page(\MyBB\template('modcp/announcements.twig', [
+	output_page(\MyBB\template('modcp_announcements', [
 		'globalAnnouncements' => $global_announcements,
 		'forumAnnouncements' => $announcements_forum
 	]));
@@ -1968,7 +1968,7 @@ if($mybb->input['action'] == "modqueue")
 			}
 
 			$threadqueue = true;
-			output_page(\MyBB\template('modcp/modqueue_threads.twig', [
+			output_page(\MyBB\template('modcp_modqueue_threads', [
 				'threadqueue' => $threadqueue,
 				'threads' => $threads,
 				'multipage' => $multipage,
@@ -2089,7 +2089,7 @@ if($mybb->input['action'] == "modqueue")
 			}
 
 			$postqueue = true;
-			output_page(\MyBB\template('modcp/modqueue_posts.twig', [
+			output_page(\MyBB\template('modcp_modqueue_posts', [
 				'postqueue' => $postqueue,
 				'posts' => $posts,
 				'multipage' => $multipage,
@@ -2206,7 +2206,7 @@ if($mybb->input['action'] == "modqueue")
 			}
 
 			$attachmentqueue = true;
-			output_page(\MyBB\template('modcp/modqueue_attachments.twig', [
+			output_page(\MyBB\template('modcp_modqueue_attachments', [
 				'attachmentqueue' => $attachmentqueue,
 				'attachments' => $attachments,
 				'multipage' => $multipage,
@@ -2222,7 +2222,7 @@ if($mybb->input['action'] == "modqueue")
 
 		$plugins->run_hooks('modcp_modqueue_end');
 
-		output_page(\MyBB\template('modcp/modqueue_empty.twig'));
+		output_page(\MyBB\template('modcp_modqueue_empty'));
 	}
 }
 
@@ -2678,7 +2678,7 @@ if($mybb->input['action'] == "editprofile")
 
 	$plugins->run_hooks('modcp_editprofile_end');
 
-	output_page(\MyBB\template('modcp/editprofile.twig', [
+	output_page(\MyBB\template('modcp_editprofile', [
 		'user' => $user,
 		'customFields' => $customfields,
 		'requiredFields' => $requiredfields,
@@ -2801,7 +2801,7 @@ if($mybb->input['action'] == "finduser")
 
 	$plugins->run_hooks('modcp_finduser_end');
 
-	output_page(\MyBB\template('modcp/finduser.twig', [
+	output_page(\MyBB\template('modcp_finduser', [
 		'users' => $users,
 		'multipage' => $multipage
 	]));
@@ -3034,7 +3034,7 @@ if($mybb->input['action'] == "warninglogs")
 	$select['reason'] = $mybb->input['filter']['reason'];
 	$select['per_page'] = $per_page;
 
-	output_page(\MyBB\template('modcp/warninglogs.twig', [
+	output_page(\MyBB\template('modcp_warninglogs', [
 		'multipage' => $multipage,
 		'select' => $select,
 		'warning_list' => $warning_list,
@@ -3379,7 +3379,7 @@ if($mybb->input['action'] == "ipsearch")
 
 	$plugins->run_hooks('modcp_ipsearch_end');
 
-	output_page(\MyBB\template('modcp/ipsearch.twig', [
+	output_page(\MyBB\template('modcp_ipsearch', [
 		'ipsearch' => $ipsearch,
 		'multipage' => $multipage,
 		'ipresults' => $ipresults,
@@ -3431,14 +3431,14 @@ if($mybb->input['action'] == "iplookup")
 
 	if($modal)
 	{
-		output_page(\MyBB\template('modcp/iplookup_modal.twig', [
+		output_page(\MyBB\template('modcp_iplookup_modal', [
 			'ipaddress' => $ipaddress,
 		]));
 		exit;
 	}
 	else
 	{
-		output_page(\MyBB\template('modcp/iplookup.twig', [
+		output_page(\MyBB\template('modcp_iplookup', [
 			'ipaddress' => $ipaddress,
 		]));
 	}
@@ -3573,7 +3573,7 @@ if($mybb->input['action'] == "banning")
 
 	$plugins->run_hooks('modcp_banning');
 
-	output_page(\MyBB\template('modcp/banning.twig', [
+	output_page(\MyBB\template('modcp_banning', [
 		'bannedusers' => $bannedusers,
 		'multipage' => $multipage,
 	]));
@@ -3778,7 +3778,7 @@ if($mybb->input['action'] == "banuser")
 
 	$plugins->run_hooks('modcp_banuser_end');
 
-	output_page(\MyBB\template('modcp/banuser.twig', [
+	output_page(\MyBB\template('modcp_banuser', [
 		'banned' => $banned,
 		'errors' => $errors,
 		'liftlist' => $liftlist,
@@ -3967,7 +3967,7 @@ if($mybb->input['action'] == "editban")
 
 	$plugins->run_hooks('modcp_editban_end');
 
-	output_page(\MyBB\template('modcp/editban.twig', [
+	output_page(\MyBB\template('modcp_editban', [
 		'banned' => $banned,
 		'errors' => $errors,
 		'liftlist' => $liftlist,
@@ -4243,7 +4243,7 @@ if(!$mybb->input['action'])
 
 	$plugins->run_hooks('modcp_end');
 
-	output_page(\MyBB\template('modcp/home.twig', [
+	output_page(\MyBB\template('modcp_home', [
 		'counters' => $counters,
 		'unapproved_attachments' => $unapproved_attachments,
 		'unapproved_posts' => $unapproved_posts,

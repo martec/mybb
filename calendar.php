@@ -605,7 +605,7 @@ if($mybb->input['action'] == "addevent")
 
 	$plugins->run_hooks("calendar_addevent_end");
 
-	output_page(\MyBB\template('calendar/addevent.twig', [
+	output_page(\MyBB\template('calendar_addevent', [
 		'calendar' => $calendar,
 		'codebuttons' => $codebuttons,
 		'smilieinserter' => $smilieinserter,
@@ -1299,7 +1299,7 @@ if($mybb->input['action'] == "editevent")
 
 	$plugins->run_hooks("calendar_editevent_end");
 
-	output_page(\MyBB\template('calendar/editevent.twig', [
+	output_page(\MyBB\template('calendar_editevent', [
 		'event' => $event,
 		'codebuttons' => $codebuttons,
 		'smilieinserter' => $smilieinserter,
@@ -1366,7 +1366,7 @@ if($mybb->input['action'] == "move")
 
 	$plugins->run_hooks("calendar_move_end");
 
-	output_page(\MyBB\template('calendar/move.twig', [
+	output_page(\MyBB\template('calendar_move', [
 		'event' => $event,
 		'calendar_select' => $calendar_select,
 	]));
@@ -1762,7 +1762,7 @@ if($mybb->input['action'] == "event")
 	// Now output the page
 	$plugins->run_hooks("calendar_event_end");
 
-	output_page(\MyBB\template('calendar/event.twig', [
+	output_page(\MyBB\template('calendar_event', [
 		'calendar_jump' => $calendar_jump,
 		'calendar' => $calendar,
 		'event' => $event,
@@ -2100,7 +2100,7 @@ if($mybb->input['action'] == "dayview")
 	// Now output the page
 	$plugins->run_hooks("calendar_dayview_end");
 
-	output_page(\MyBB\template('calendar/dayview.twig', [
+	output_page(\MyBB\template('calendar_dayview', [
 		'birthdays' => $birthdays,
 		'calendar_jump' => $calendar_jump,
 		'events' => $events,
@@ -2379,7 +2379,7 @@ if($mybb->input['action'] == "weekview")
 	// Now output the page
 	$plugins->run_hooks("calendar_weekview_end");
 
-	output_page(\MyBB\template('calendar/weekview.twig', [
+	output_page(\MyBB\template('calendar_weekview', [
 		'calendar_permissions' => $calendar_permissions,
 		'weekdays' => $weekdays,
 		'calendar_jump' => $calendar_jump,
@@ -2706,7 +2706,7 @@ if(!$mybb->input['action'])
 
 	$plugins->run_hooks("calendar_end");
 
-	output_page(\MyBB\template('calendar/calendar.twig', [
+	output_page(\MyBB\template('calendar_calendar', [
 		'calendar_permissions' => $calendar_permissions,
 		'years' => $years,
 		'calendar_jump' => $calendar_jump,

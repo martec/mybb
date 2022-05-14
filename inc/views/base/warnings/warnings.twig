@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.warning_log }} - {{ mybb.settings.bbname }}</title>
@@ -34,7 +34,7 @@
                     <h1 class="title title--major">{{ lang.expired_warnings }}</h1>
                 {% endif %}
 
-                {% include 'warnings/warning_row.twig' %}
+                {% include 'warnings_warning_row' %}
             {% else %}
                 <div class="alert alert--no-results alert--no-results-container">{{ lang.no_warnings }}</div>
             {% endfor %}

@@ -8,27 +8,27 @@
             <span class="thread__icons">
                 {# Closed #}
                 {% if thread.closed and moved != true %}
-                    {{ include('partials/icon.twig', {icon: 'lock', class: 'thread__icon fa-fw', title: lang.closed}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'lock', class: 'thread__icon fa-fw', title: lang.closed}, with_context = false) }}
                 {% endif %}
 
                 {# Sticky #}
                 {% if thread.sticky %}
-                    {{ include('partials/icon.twig', {icon: 'thumbtack', class: 'thread__icon thread__icon--sticky fa-fw', title: lang.sticky}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'thumbtack', class: 'thread__icon thread__icon--sticky fa-fw', title: lang.sticky}, with_context = false) }}
                 {% endif %}
 
                 {# Moved #}
                 {% if moved %}
-                    {{ include('partials/icon.twig', {icon: 'arrow-right', class: 'thread__icon fa-fw', title: lang.moved_prefix}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'arrow-right', class: 'thread__icon fa-fw', title: lang.moved_prefix}, with_context = false) }}
                 {% endif %}
 
                 {# Poll #}
                 {% if thread.poll %}
-                    {{ include('partials/icon.twig', {icon: 'check-square', class: 'thread__icon fa-fw', title: lang.poll_prefix}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'check-square', class: 'thread__icon fa-fw', title: lang.poll_prefix}, with_context = false) }}
                 {% endif %}
             </span>
         </h3>
     </div>
     <div class="thread__column thread__column--replies">&nbsp;</div>
     <div class="thread__column thread__column--latest">&nbsp;</div>
-    {% include 'forumdisplay/thread_modbit.twig' %}
+    {% include 'forumdisplay_thread_modbit' %}
 </div>

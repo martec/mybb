@@ -1,4 +1,4 @@
-{% extends 'layouts/account.twig' %}
+{% extends 'layouts_account' %}
 
 {% block head %}
     <title>{{ lang.edit_profile }} - {{ mybb.settings.bbname }}</title>
@@ -14,7 +14,7 @@
     <form action="usercp.php" method="post">
         <input type="hidden" name="my_post_key" value="{{ mybb.post_code }}" />
 
-        {% include 'usercp/profile_menu.twig' %}
+        {% include 'usercp_profile_menu' %}
 
         {{ errors|raw }}
 
@@ -24,7 +24,7 @@
                     <h2 class="title title--section">{{ lang.profile_required }}</h2>
                     <div class="section__container">
                         {% for field in requiredFields %}
-                            {% include 'usercp/profilefield.twig' %}
+                            {% include 'usercp_profilefield' %}
                         {% endfor %}
                     </div>
                 </section>
@@ -71,7 +71,7 @@
                             <div class="date-field__item">
                                 <h4 class="date-field__name"><label for="bday_day">{{ lang.day }}</label></h4>
                                 <div class="select-field">
-                                    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                     <select name="bday1" id="bday_day">
                                         <option value="">&nbsp;</option>
                                         {% for day in 1..31 %}
@@ -83,7 +83,7 @@
                             <div class="date-field__item">
                                 <h4 class="date-field__name"><label for="bday_month">{{ lang.month }}</label></h4>
                                 <div class="select-field">
-                                    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                     <select name="bday2" id="bday_month">
                                         <option value="">&nbsp;</option>
                                         {% for month in 1..12 %}
@@ -102,7 +102,7 @@
                     <div class="row row--form field">
                         <h3 class="field__name"><label for="birthdayprivacy">{{ lang.birthdayprivacy }}</label></h3>
                         <div class="select-field">
-                            {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="birthdayprivacy" id="birthdayprivacy">
                                 <option value="all"{% if user.birthdayprivacy == 'all' or user.birthdayprivacy is empty %} selected{% endif %}>{{ lang.birthdayprivacyall }}</option>
                                 <option value="none"{% if user.birthdayprivacy == 'none' %} selected{% endif %}>{{ lang.birthdayprivacynone }}</option>
@@ -118,7 +118,7 @@
                     <h2 class="title title--section">{{ lang.additional_contact_details }}</h2>
                     <div class="section__container">
                         {% for field in contactFields %}
-                            {% include 'usercp/profilefield.twig' %}
+                            {% include 'usercp_profilefield' %}
                         {% endfor %}
                     </div>
                 </section>
@@ -135,7 +135,7 @@
                             </div>
                         {% endif %}
                         {% for field in customFields %}
-                            {% include 'usercp/profilefield.twig' %}
+                            {% include 'usercp_profilefield' %}
                         {% endfor %}
                     </div>
                 </section>
@@ -168,7 +168,7 @@
                                 <div class="date-field__item">
                                     <h4 class="date-field__name"><label for="away_day">{{ lang.day }}</label></h4>
                                     <div class="select-field">
-                                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                         <select name="awayday" id="away_day">
                                             <option value="">&nbsp;</option>
                                             {% for day in 1..31 %}
@@ -180,7 +180,7 @@
                                 <div class="date-field__item">
                                     <h4 class="date-field__name"><label for="away_month">{{ lang.month }}</label></h4>
                                     <div class="select-field">
-                                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                         <select name="awaymonth" id="away_month">
                                             <option value="">&nbsp;</option>
                                             {% for month in 1..12 %}
@@ -201,7 +201,7 @@
             {% endif %}
             <div class="form__submit">
                 <button type="submit" class="button button--medium" name="regsubmit">
-                    {{ include('partials/icon.twig', {icon: 'user', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'user', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.update_profile }}</span>
                 </button>
             </div>

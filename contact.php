@@ -304,7 +304,7 @@ else
 
 $plugins->run_hooks('contact_end');
 
-output_page(\MyBB\template('contact/contact.twig', [
+output_page(\MyBB\template('contact_contact', [
 	'errors' => $errors,
 	'captcha' => $captcha,
     'redirect_url' => $redirect_url,

@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ trans('reputation_report', user.username) }} - {{ mybb.settings.bbname }}</title>
@@ -20,7 +20,7 @@
             <div class="page-controls page-controls--top">
                 <div class="page-buttons">
                     <a href="javascript:void(0)" onclick="MyBB.reputation({{ user.uid }}); return false;" class="button button--full-width">
-                        {{ include('partials/icon.twig', {icon: 'thumbs-up', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'thumbs-up', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.rate_user }}</span>
                     </a>
                 </div>
@@ -89,7 +89,7 @@
             <h1 class="title title--major">{{ lang.comments }}</h1>
             <div class="reputation-ratings">
                 {% for reputation_vote in reputation_votes %}
-                    {% include 'reputation/reputation_vote.twig' %}
+                    {% include 'reputation_reputation_vote' %}
                 {% else %}
                     <div class="alert alert--no-results">{{ lang.no_reputation_votes }}</div>
                 {% endfor %}
@@ -98,7 +98,7 @@
                 <form action="reputation.php" method="get">
                     <input type="hidden" name="uid" value="{{ user.uid }}" />
                     <div class="select-field">
-                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                         <select name="show">
                             <option value="all"{% if select.show.all %} selected="selected"{% endif %}>{{ lang.show_all }}</option>
                             <option value="positive"{% if select.show.positive %} selected="selected"{% endif %}>{{ lang.show_positive }}</option>
@@ -107,14 +107,14 @@
                         </select>
                     </div>
                     <div class="select-field">
-                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                         <select name="sort">
                             <option value="dateline"{% if select.sort.last_updated %} selected="selected"{% endif %}>{{ lang.sort_updated }}</option>
                             <option value="username"{% if select.sort.username %} selected="selected"{% endif %}>{{ lang.sort_username }}</option>
                         </select>
                     </div>
                     <button type="submit" class="button button--inline">
-                        {{ include('partials/icon.twig', {icon: 'random', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'random', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.sort_ratings }}</span>
                     </button>
                 </form>

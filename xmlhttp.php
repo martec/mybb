@@ -1070,7 +1070,7 @@ else if($mybb->input['action'] == "get_buddyselect")
 
 		$plugins->run_hooks("xmlhttp_get_buddyselect_end");
 
-		echo \MyBB\template('xmlhttp/buddyselect.twig', [
+		echo \MyBB\template('xmlhttp_buddyselect', [
 			'buddies' => $buddies
 		]);
 	}
@@ -1109,7 +1109,7 @@ else if($mybb->input['action'] == 'get_referrals')
 
 	// Send our headers and output.
 	header("Content-type: text/plain; charset={$charset}");
-	echo \MyBB\template('referrals/referrals_popup.twig', [
+	echo \MyBB\template('referrals_referrals_popup', [
 		'referral_count' => $referral_count,
 		'referrals' => $referrals,
 	]);

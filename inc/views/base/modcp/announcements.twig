@@ -1,4 +1,4 @@
-{% extends 'layouts/moderation.twig' %}
+{% extends 'layouts_moderation' %}
 
 {% block head %}
     <title>{{ lang.manage_announcement }} - {{ mybb.settings.bbname }}</title>
@@ -16,7 +16,7 @@
         <div class="page-controls">
             <div class="page-buttons">
                 <a href="modcp.php?action=new_announcement&amp;fid=-1" class="button button--medium button--full-width">
-                    {{ include('partials/icon.twig', {icon: 'plus', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'plus', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.add_global_announcement }}</span>
                 </a>
             </div>
@@ -33,16 +33,16 @@
                             {% set title = lang.active_announcement %}
                             {% set class = 'primary' %}
                         {% endif %}
-                        {{ include('partials/icon.twig', {icon: 'circle', class: 'icon icon--announcement icon--' ~ class, title: title}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'circle', class: 'icon icon--announcement icon--' ~ class, title: title}, with_context = false) }}
                         <a href="announcements.php?aid={{ aid }}">{{ announcement.subject }}</a>
                     </div>
                     <div class="row__controls">
                         <a href="modcp.php?action=edit_announcement&amp;aid={{ aid }}" class="button button--secondary button--small">
-                            {{ include('partials/icon.twig', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
                             <span class="button__text">{{ lang.edit }}</span>
                         </a>
                         <a href="modcp.php?action=delete_announcement&amp;aid={{ aid }}" class="button button--secondary button--danger button--small">
-                            {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                             <span class="button__text">{{ lang.delete }}</span>
                         </a>
                     </div>

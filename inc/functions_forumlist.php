@@ -256,7 +256,7 @@ SQL;
 			// If this is a forum and we've got subforums of it, load the subforums list template
 			if($depth == 2 && $sub_forums)
 			{
-				$subforums = \MyBB\template('forumbit/subforums.twig', [
+				$subforums = \MyBB\template('forumbit_subforums', [
 					'sub_forums' => $sub_forums
 				]);
 			}
@@ -266,7 +266,7 @@ SQL;
 				if($donecount < $mybb->settings['subforumsindex'])
 				{
 					// Fetch the template and append it to the list
-					$forum_list .= \MyBB\template('forumbit/depth3.twig', [
+					$forum_list .= \MyBB\template('forumbit_depth3', [
 						'lightbulb' => $lightbulb,
 						'forum' => $forum,
 						'comma' => $comma
@@ -281,7 +281,7 @@ SQL;
 					if(subforums_count($fcache[$pid]) > $donecount)
 					{
 						$more_count = subforums_count($fcache[$pid]) - $donecount;
-						$forum_list .= \MyBB\template('forumbit/subforums_more.twig', [
+						$forum_list .= \MyBB\template('forumbit_subforums_more', [
 							'more_count' => $more_count
 						]);
 					}
@@ -298,7 +298,7 @@ SQL;
 				// No posts have been made in this forum - show never text
 				if($forum['last_post']['lastpost'] == 0 && $hideinfo != true)
 				{
-					$lastpost = \MyBB\template('forumbit/depth_2/last_post_never.twig');
+					$lastpost = \MyBB\template('forumbit_depth_2_last_post_never');
 				}
 				elseif($hideinfo != true)
 				{
@@ -320,7 +320,7 @@ SQL;
 					// Call lastpost template
 					if($depth != 1)
 					{
-						$lastpost = \MyBB\template('forumbit/depth_'.$depth.'/last_post.twig', [
+						$lastpost = \MyBB\template('forumbit_depth_'.$depth.'_last_post', [
 							'forum' => $forum
 						]);
 					}
@@ -342,7 +342,7 @@ SQL;
 			// If this forum is a link or is password protected and the user isn't authenticated, set lastpost to "-"
 			if($forum['linkto'] != '' || $hideinfo == true || $hidelastpostinfo == true)
 			{
-				$lastpost = \MyBB\template('forumbit/depth_2/last_post_hidden.twig');
+				$lastpost = \MyBB\template('forumbit_depth_2_last_post_hidden');
 			}
 
 			// Moderator column is not off
@@ -400,7 +400,7 @@ SQL;
 			}
 
 			// Add the forum to the list
-			$forum_list .= \MyBB\template('forumbit/depth_'.$depth.'/'.$forumcat.'.twig', [
+			$forum_list .= \MyBB\template('forumbit_depth_'.$depth.'_'.$forumcat.'', [
 				'forum' => $forum,
 				'collapsed' => $collapsed,
 				'sub_forums' => $sub_forums,

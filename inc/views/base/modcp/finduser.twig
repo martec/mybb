@@ -1,4 +1,4 @@
-{% extends 'layouts/moderation.twig' %}
+{% extends 'layouts_moderation' %}
 
 {% block head %}
     <title>{{ lang.find_users }} - {{ mybb.settings.bbname }}</title>
@@ -65,7 +65,7 @@
                 <div class="section__container">
                     <div class="row row--form field">
                         <div class="select-field">
-                            {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="sortby">
                                 <option value="username"{% if mybb.input.sortby == 'username' %} selected{% endif %}>{{ lang.sortby_username }}</option>
                                 <option value="regdate"{% if mybb.input.sortby == 'regdate' or mybb.input.sortby == '' %} selected{% endif %}>{{ lang.sortby_regdate }}</option>
@@ -90,7 +90,7 @@
             </div>
             <div class="form__submit">
                 <button type="submit" class="button button--medium">
-                    {{ include('partials/icon.twig', {icon: 'search', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'search', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.find_users }}</span>
                 </button>
             </div>

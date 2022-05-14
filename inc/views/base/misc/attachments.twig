@@ -9,7 +9,7 @@
             <div style="pointer-events: none;"></div>
         </div>
         {% for attachment in attachments %}
-            {{ include('misc/attachments_attachment.twig') }}
+            {{ include('misc_attachments_attachment') }}
         {% endfor %}
         {% if composepost.showattachoptions %}
         <div class="row row--form field">
@@ -19,13 +19,13 @@
             </div>
             {% if composepost.showattachadd %}
                 <button type="submit" class="button button--full-width" name="newattachment" value="new">
-                    {{ include('partials/icon.twig', {icon: 'upload', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'upload', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.add_attachment }}</span>
                 </button>
             {% endif %}
             {% if composepost.showattachupdate %}
             <button type="submit" class="button button--full-width button--secondary" name="updateattachment" value="update">
-                {{ include('partials/icon.twig', {icon: 'paperclip', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'paperclip', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.update_attachment }}</span>
             </button>
             {% endif %}

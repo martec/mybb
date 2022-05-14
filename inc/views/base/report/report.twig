@@ -16,13 +16,13 @@
                         {% elseif report.is_duplicate %}
                             <div class="row row--form">{{ lang.error_report_duplicate }}</div>
                         {% else %}
-                            {% include 'report/report_reasons.twig' %}
+                            {% include 'report_report_reasons' %}
                         {% endif %}
                     </div>
                     {% if report.has_errors == false %}
                     <div class="form__submit">
                         <button type="submit" class="button button--medium">
-                            {{ include('partials/icon.twig', {icon: 'flag', class: 'button__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'flag', class: 'button__icon'}, with_context = false) }}
                             <span class="button__text">{{ report.title }}</span>
                         </button>
                     </div>

@@ -689,7 +689,7 @@ if(!(defined('THIS_SCRIPT') && THIS_SCRIPT == 'editpost.php') && ($can_access_mo
 			}
 
 			$headerMessage[] = [
-				'message' => \MyBB\template('misc/modqueue_link.twig', [
+				'message' => \MyBB\template('misc_modqueue_link', [
 					'modqueue_type' => $modqueue_type,
 					'modqueue_message' => $modqueue_message,
 				]),
@@ -914,7 +914,7 @@ if(($mybb->settings['contactlink'] == "contact.php" && $mybb->settings['contact'
 if($mybb->user['uid'] > 0 && $mybb->user['dstcorrection'] == 2)
 {
 	$timezone = (float)$mybb->user['timezone'] + $mybb->user['dst'];
-	$mybb->settings['dst_detection'] = \MyBB\template('messages/dst_detection.twig', [
+	$mybb->settings['dst_detection'] = \MyBB\template('messages_dst_detection', [
 		'timezone' => $timezone
 	]);
 }
@@ -956,7 +956,7 @@ if($mybb->settings['boardclosed'] == 1 && $mybb->usergroup['canviewboardclosed']
 		$mybb->settings['boardclosed_reason'] = $lang->boardclosed_reason;
 	}
 
-	$lang->error_boardclosed .= \MyBB\template('messages/boardclosed_reason.twig');
+	$lang->error_boardclosed .= \MyBB\template('messages_boardclosed_reason');
 
 	if(!$mybb->get_input('modal'))
 	{
@@ -964,7 +964,7 @@ if($mybb->settings['boardclosed'] == 1 && $mybb->usergroup['canviewboardclosed']
 	}
 	else
 	{
-		echo(\MyBB\template('modals/boardclosed.twig'));
+		echo(\MyBB\template('modals_boardclosed'));
 	}
 	exit;
 }
@@ -1058,7 +1058,7 @@ if($mybb->usergroup['canview'] != 1)
 		}
 		else
 		{
-			echo(\MyBB\template('modals/no_permission.twig'));
+			echo(\MyBB\template('modals_no_permission'));
 			exit;
 		}
 	}

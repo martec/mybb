@@ -10,7 +10,7 @@
 
             {% if post.unread %}
                 <a href="{{ post.post_url|raw }}#pid{{ post.pid }}" class="thread__status">
-                    {{ include('partials/icon.twig', {icon: 'circle', class: '', title: lang.goto_post }, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'circle', class: '', title: lang.goto_post }, with_context = false) }}
                 </a>
             {% endif %}
 

@@ -1,4 +1,4 @@
-{% extends 'layouts/moderation.twig' %}
+{% extends 'layouts_moderation' %}
 
 {% block head %}
     <title>{{ lang.modcp }} - {{ mybb.settings.bbname }}</title>
@@ -77,7 +77,7 @@
         <section class="block">
             <h1 class="title title--major">{{ lang.modlogs }}</h1>
             {% for logitem in modlogs %}
-                {% include 'modcp/modlogs/item.twig' %}
+                {% include 'modcp_modlogs_item' %}
             {% else %}
                 <div class="alert alert--no-results">{{ lang.error_no_results }}</div>
             {% endfor %}
@@ -87,7 +87,7 @@
     <section class="block">
         <h1 class="title title--major">{{ lang.bans_ending_soon }}</h1>
         {% for banned in bannedusers %}
-            {% include 'modcp/banning/item.twig' %}
+            {% include 'modcp_banning_item' %}
         {% else %}
             <div class="alert alert--no-results">{{ lang.no_banned_soon }}</div>
         {% endfor %}
@@ -107,7 +107,7 @@
             <div class="form__submit">
                 <input type="hidden" name="action" value="do_notepad" />
                 <button type="submit" class="button" name="submit">
-                    {{ include('partials/icon.twig', {icon: 'sticky-note', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'sticky-note', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.save_notes }}</span>
                 </button>
             </div>

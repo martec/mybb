@@ -24,7 +24,7 @@
                             <div class="row row--form field">
                                 <h3 class="field__name visually-hidden"><label for="reputation">{{ lang.rating }}</label></h3>
                                 <div class="select-field">
-                                    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                     <select name="reputation" id="reputation">
                                         {% if mybb.settings.posrep %}
                                             {% for power in range(mybb.usergroup.reputationpower, 1) %}
@@ -56,12 +56,12 @@
                         </div>
                         <div class="form__submit">
                             <button type="submit" class="button button--medium">
-                                {{ include('partials/icon.twig', {icon: 'thumbs-up', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'thumbs-up', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{% if existing_reputation.uid %}{{ lang.update_vote }}{% else %}{{ lang.add_vote }}{% endif %}</span>
                             </button>
                             {% if existing_reputation.show_delete %}
                                 <button class="button button--medium button--secondary" name="delete" value="delete" onclick="return MyBB.submitReputation({{ user.uid }}, {{ vote_check.pid }}, 1);">
-                                    {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.delete_vote }}</span>
                                 </button>
                             {% endif %}

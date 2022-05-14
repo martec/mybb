@@ -5,8 +5,8 @@
             <p class="title__description">{{ forum.description|raw }}</p>
         {% endif %}
         <span class="collapse__toggle">
-            {{ include('partials/icon.twig', {icon: 'minus-square', class: 'collapse__icon collapse__icon--collapse', title: lang.expcol_collapse}, with_context = false) }}
-            {{ include('partials/icon.twig', {icon: 'plus-square', class: 'collapse__icon collapse__icon--expand', title: lang.expcol_expand}, with_context = false) }}
+            {{ include('partials_icon', {icon: 'minus-square', class: 'collapse__icon collapse__icon--collapse', title: lang.expcol_collapse}, with_context = false) }}
+            {{ include('partials_icon', {icon: 'plus-square', class: 'collapse__icon collapse__icon--expand', title: lang.expcol_expand}, with_context = false) }}
         </span>
     </div>
     <div class="forum-list forum-list--full-width collapse__content">

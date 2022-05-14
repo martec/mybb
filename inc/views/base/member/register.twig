@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.registration }} - {{ mybb.settings.bbname }}</title>
@@ -73,7 +73,7 @@
                         <h2 class="title title--section">{{ lang.required_info }}</h2>
                         <div class="section__container">
                             {% for field in requiredfields %}
-                                {% include 'member/register_profilefield.twig' %}
+                                {% include 'member_register_profilefield' %}
                             {% endfor %}
                         </div>
                     </section>
@@ -84,7 +84,7 @@
                         <h2 class="title title--section">{{ lang.additional_info }}</h2>
                         <div class="section__container">
                             {% for field in customfields %}
-                                {% include 'member/register_profilefield.twig' %}
+                                {% include 'member_register_profilefield' %}
                             {% endfor %}
                         </div>
                     </section>
@@ -95,7 +95,7 @@
                         <h2 class="title title--section">{{ lang.contact_info }}</h2>
                         <div class="section__container">
                             {% for field in contactfields %}
-                                {% include 'member/register_profilefield.twig' %}
+                                {% include 'member_register_profilefield' %}
                             {% endfor %}
                         </div>
                     </section>
@@ -166,7 +166,7 @@
                         <div class="hidden row row--form field">
                             <h3 class="field__name"><label for="subscriptionmethod">{{ lang.subscription_method }}</label></h3>
                             <div class="select-field">
-                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                 <select name="subscriptionmethod" id="subscriptionmethod">
                                     <option value="0"{% if select.subscriptionmethod.none %} selected="selected"{% endif %}>{{ lang.no_auto_subscribe }}</option>
                                     <option value="1"{% if select.subscriptionmethod.no %} selected="selected"{% endif %}>{{ lang.no_subscribe }}</option>
@@ -180,7 +180,7 @@
                                 <h3 class="field__name"><label for="language">{{ lang.lang_select }}</label></h3>
                                 <p class="field__description">{{ lang.lang_select_desc }}</p>
                                 <div class="select-field">
-                                    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                     <select name="language" id="language">
                                         <option value="">{{ lang.lang_select_default }}</option>
                                         <option value="">-----------</option>
@@ -196,7 +196,7 @@
                                 <h3 class="field__name"><label for="timezoneoffset">{{ lang.time_offset|raw }}</label></h3>
                                 <p class="field__description">{{ lang.time_offset_desc }}</p>
                                 <div class="select-field">
-                                    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                     <select name="timezoneoffset" id="timezoneoffset">
                                         {% for timezone in timezones %}
                                             <option value="{{ timezone.timezone }}"{% if timezone.selected %} selected="selected"{% endif %}>{{ timezone.label }}</option>
@@ -208,7 +208,7 @@
                         <div class="hidden row row--form field">
                             <h3 class="field__name"><label for="dstcorrection">{{ lang.dst_correction }}</label></h3>
                             <div class="select-field">
-                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                 <select name="dstcorrection" id="dstcorrection">
                                     <option value="2"{% if select.dst.auto %} selected="selected"{% endif %}>{{ lang.dst_correction_auto }}</option>
                                     <option value="1"{% if select.dst.enabled %} selected="selected"{% endif %}>{{ lang.dst_correction_enabled }}</option>
@@ -240,7 +240,7 @@
                                     <!--
                                         if(use_xmlhttprequest == "1")
                                         {
-                                            document.write('<button class="button button--inline" tabindex="10000" name="refresh" onclick="return question.refresh();">{% apply spaceless %}{{ include('partials/icon.twig', {icon: 'sync-alt', class: 'button__icon'}, with_context = false) }}{% endapply %}<span class="button__text">{{ lang.refresh }}</span></button>');
+                                            document.write('<button class="button button--inline" tabindex="10000" name="refresh" onclick="return question.refresh();">{% apply spaceless %}{{ include('partials_icon', {icon: 'sync-alt', class: 'button__icon'}, with_context = false) }}{% endapply %}<span class="button__text">{{ lang.refresh }}</span></button>');
                                         }
                                     // -->
                                     </script>
@@ -252,7 +252,7 @@
                 {% endif %}
                 <div class="form__submit">
                     <button type="submit" class="button button--medium" name="regsubmit">
-                        {{ include('partials/icon.twig', {icon: 'user', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'user', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.submit_registration }}</span>
                     </button>
                 </div>

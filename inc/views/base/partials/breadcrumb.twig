@@ -24,7 +24,7 @@
         {% else %}
             <a href="{{ crumb.url|remove_page_one|raw }}" class="breadcrumb__link">
                 <span class="breadcrumb__text">{{ crumb.name }}</span>
-                {{ include('partials/icon.twig', {icon: 'chevron-right', class: 'breadcrumb__separator'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'chevron-right', class: 'breadcrumb__separator'}, with_context = false) }}
             </a>
         {% endif %}
     {% endfor %}

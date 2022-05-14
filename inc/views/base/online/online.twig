@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.users_online }} - {{ mybb.settings.bbname }}</title>
@@ -19,15 +19,15 @@
         <div class="sort-results">
             <span class="sort-results__text">{{ lang.sort_results }}</span>
             <a href="online.php?sortby=username" class="button button--basic">
-                {{ include('partials/icon.twig', {icon: 'user', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'user', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.on_username }}</span>
             </a>
             <a href="online.php?sortby=time" class="button button--basic">
-                {{ include('partials/icon.twig', {icon: 'clock', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'clock', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.time }}</span>
             </a>
             <a href="online.php?sortby=location" class="button button--basic">
-                {{ include('partials/icon.twig', {icon: 'globe', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'globe', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.location }}</span>
             </a>
         </div>
@@ -65,11 +65,11 @@
             {{ multipage|raw }}
             <div class="page-buttons">
                 <a href="online.php?action=today" class="button button--basic">
-                    {{ include('partials/icon.twig', {icon: 'calendar', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'calendar', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.online_today }}</span>
                 </a>
                 <a href="online.php" class="button button--basic">
-                    {{ include('partials/icon.twig', {icon: 'sync', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'sync', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.refresh_page }}</span>
                 </a>
             </div>

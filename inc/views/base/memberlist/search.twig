@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.search_member_list }} - {{ mybb.settings.bbname }}</title>
@@ -17,7 +17,7 @@
                         <div class="row row--form field">
                             <h3 class="field__name"><label for="username">{{ lang.username }}</label></h3>
                             <div class="select-field">
-                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                 <select name="username_match">
                                     <option value="begins">{{ lang.begins_with }}</option>
                                     <option value="contains">{{ lang.username_contains }}</option>
@@ -44,7 +44,7 @@
                         <div class="row row--form field">
                             <h3 class="field__name"><label for="sort">{{ lang.sort_by }}</label></h3>
                             <div class="select-field">
-                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                 <select name="sort" id="sort">
                                     <option value="username">{{ lang.sort_by_username }}</option>
                                     <option value="regdate">{{ lang.sort_by_regdate }}</option>
@@ -75,7 +75,7 @@
                 </section>
                 <div class="form__submit">
                     <button type="submit" class="button button--medium">
-                        {{ include('partials/icon.twig', {icon: 'search', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'search', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.search }}</span>
                     </button>
                 </div>

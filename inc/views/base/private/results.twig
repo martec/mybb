@@ -1,4 +1,4 @@
-{% extends 'layouts/messenger.twig' %}
+{% extends 'layouts_messenger' %}
 
 {% block head %}
     <title>{{ lang.pm_search_results }} - {{ mybb.settings.bbname }}</title>
@@ -17,11 +17,11 @@
         <div class="messenger__search">
             <input type="text" name="keywords" placeholder="{{ lang.enter_keywords }}" class="textbox textbox--large" size="25" />
             <button type="submit" class="button button--inline" name="quick_search" value="search">
-                {{ include('partials/icon.twig', {icon: 'search', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'search', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.search_pms }}</span>
             </button>
             <a href="private.php?action=advanced_search" class="messenger__advanced-search button button--basic button--inline">
-                {{ include('partials/icon.twig', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.advanced_search }}</span>
             </a>
         </div>
@@ -40,18 +40,18 @@
             </div>
             <div class="message-list__container">
                 {% for message in messagelist %}
-                    {% include 'private/results/item.twig' %}
+                    {% include 'private_results_item' %}
                 {% else %}
                     <div class="alert alert--no-results">{{ lang.nomessages }}</div>
                 {% endfor %}
             </div>
             <div class="sort-results">
                 <button type="submit" class="button button--inline" name="moveto" value="move">
-                    {{ include('partials/icon.twig', {icon: 'arrow-right', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'arrow-right', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.move_to }}</span>
                 </button>
                 <div class="select-field">
-                    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                     <select name="fid">
                         {% for folder in folders %}
                             <option value="{{ folder.id }}"{% if folder.sel %} selected="selected"{% endif %}>{{ folder.name }}</option>
@@ -60,7 +60,7 @@
                 </div>
                 <span class="sort-results__text">{{ lang.or }}</span>
                 <button type="submit" class="button button--inline" name="delete" value="delete">
-                    {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.delete }}</span>
                 </button>
                 <span class="sort-results__text">{{ lang.selected_messages }}</span>

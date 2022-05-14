@@ -70,7 +70,7 @@
         var spinner_image = "{{ theme.imgdir }}/spinner.gif";
         var spinner = "<img src='" + spinner_image +"' alt='' />";
         var modal_zindex = 9999;
-        var modal_close = '{% apply spaceless %}{% include 'modals/close.twig' %}{% endapply %}';
+        var modal_close = '{% apply spaceless %}{% include 'modals_close' %}{% endapply %}';
     // -->
     </script>
 
@@ -79,10 +79,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
 </head>
 <body>
-{% block header %}{% include 'partials/header.twig' %}{% endblock %}
+{% block header %}{% include 'partials_header' %}{% endblock %}
 
 {% block body %}{% endblock %}
 
-{% block footer %}{% include 'partials/footer.twig' %}{% endblock %}
+{% block footer %}{% include 'partials_footer' %}{% endblock %}
 </body>
 </html>

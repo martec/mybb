@@ -24,11 +24,11 @@ $plugins->run_hooks("polls_start");
 
 if($mybb->user['uid'] != 0)
 {
-	$loginbox = \MyBB\template('misc/changeuserbox.twig');
+	$loginbox = \MyBB\template('misc_changeuserbox');
 }
 else
 {
-	$loginbox = \MyBB\template('misc/loginbox.twig');
+	$loginbox = \MyBB\template('misc_loginbox');
 }
 
 $mybb->input['action'] = $mybb->get_input('action');
@@ -176,7 +176,7 @@ if($mybb->input['action'] == "newpoll")
 
 	$plugins->run_hooks("polls_newpoll_end");
 
-	output_page(\MyBB\template('polls/newpoll.twig', [
+	output_page(\MyBB\template('polls_newpoll', [
 		'loginbox' => $loginbox,
 		'thread' => $thread,
 		'select' => $select,
@@ -560,7 +560,7 @@ if($mybb->input['action'] == "editpoll")
 
 	$plugins->run_hooks("polls_editpoll_end");
 
-	output_page(\MyBB\template('polls/editpoll.twig', [
+	output_page(\MyBB\template('polls_editpoll', [
 		'loginbox' => $loginbox,
 		'poll' => $poll,
 		'select' => $select,
@@ -921,7 +921,7 @@ if($mybb->input['action'] == "showresults")
 
 	$plugins->run_hooks("polls_showresults_end");
 
-	output_page(\MyBB\template('polls/showresults.twig', [
+	output_page(\MyBB\template('polls_showresults', [
 		'poll' => $poll,
 		'polloptions' => $polloptions,
 	]));

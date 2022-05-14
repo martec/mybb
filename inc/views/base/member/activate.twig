@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.account_activation }} - {{ mybb.settings.bbname }}</title>
@@ -23,7 +23,7 @@
                 </section>
                 <div class="form__submit">
                     <button type="submit" name="regsubmit" class="button button--medium">
-                        {{ include('partials/icon.twig', {icon: 'check', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'check', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.activate_account }}</span>
                     </button>
                 </div>

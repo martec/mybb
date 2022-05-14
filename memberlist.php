@@ -49,7 +49,7 @@ if($mybb->get_input('action') == "search")
 	$plugins->run_hooks("memberlist_search");
 	add_breadcrumb($lang->nav_memberlist_search);
 
-	output_page(\MyBB\template('memberlist/search.twig'));
+	output_page(\MyBB\template('memberlist_search'));
 }
 else
 {
@@ -343,7 +343,7 @@ else
 			if($referral_count > 0)
 			{
 				$uid = (int) $user['uid'];
- 				$user['referrals'] = \MyBB\template('referrals/referrals_link.twig', [
+ 				$user['referrals'] = \MyBB\template('referrals_referrals_link', [
 					'uid' => $uid,
  					'referral_count' => $referral_count,
  				]);
@@ -447,7 +447,7 @@ else
 
 	$plugins->run_hooks("memberlist_end");
 
-	output_page(\MyBB\template('memberlist/memberlist.twig', [
+	output_page(\MyBB\template('memberlist_memberlist', [
 		'memberlist' => $memberlist,
 		'multipage' => $multipage,
 		'users' => $users,

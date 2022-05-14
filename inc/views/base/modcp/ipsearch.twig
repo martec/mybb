@@ -1,4 +1,4 @@
-{% extends 'layouts/moderation.twig' %}
+{% extends 'layouts_moderation' %}
 
 {% block head %}
     <title>{{ lang.ipsearch }} - {{ mybb.settings.bbname }}</title>
@@ -16,11 +16,11 @@
             <div class="page-controls">
                 <div class="page-buttons">
                     <a href="modcp.php?action=iplookup&amp;ipaddress={{ ipsearch.ipaddress }}" onclick="MyBB.popupWindow('/modcp.php?action=iplookup&ipaddress={{ ipaddress_url }}&modal=1'); return false;" class="button button--basic">
-                        {{ include('partials/icon.twig', {icon: 'info-circle', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'info-circle', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.info_on_ip }}</span>
                     </a>
                     <a href="http://www.stopforumspam.com/ipcheck/{{ ipsearch.ipaddress }}" target="_blank" rel="noopener" class="button button--basic">
-                        {{ include('partials/icon.twig', {icon: 'hand-paper', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'hand-paper', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.search_ip_sfs }}</span>
                     </a>
                 </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="form__submit">
                 <button type="submit" class="button button--medium">
-                {{ include('partials/icon.twig', {icon: 'search', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'search', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.find }}</span>
                 </button>
             </div>

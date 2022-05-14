@@ -1,7 +1,7 @@
 <section class="simple-columns__item block" id="receivedrequests">
     <h2 class="title title--minor">{{ lang.buddyrequests_received }}</h2>
     {% for request in receivedRequests %}
-        {% include 'usercp/editlists/received_request_row.twig' %}
+        {% include 'usercp_editlists_received_request_row' %}
     {% else %}
         <div class="alert alert--no-results">{{ lang.no_requests }}</div>
     {% endfor %}

@@ -1,4 +1,4 @@
-{% extends 'layouts/moderation.twig' %}
+{% extends 'layouts_moderation' %}
 
 {% block head %}
     <title>{{ lang.all_reports }} - {{ mybb.settings.bbname }}</title>
@@ -13,7 +13,7 @@
 {% block moderationBody %}
     <section class="block">
         {% for report in allreports %}
-            {% include 'modcp/allreports/item.twig' %}
+            {% include 'modcp_allreports_item' %}
         {% else %}
             <div class="alert alert--no-results alert--no-results-container">{{ lang.no_reports }}</div>
         {% endfor %}

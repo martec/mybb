@@ -224,7 +224,7 @@ if($mybb->settings['enableattachments'] == 1 && ($mybb->get_input('newattachment
 				'showmodapproval' => is_moderator($fid, "canapproveunapproveattachs"),
 				'showinsert' => ($mybb->settings['bbcodeinserter'] != 0 && $forum['allowmycode'] != 0 && $mybb->user['showcodebuttons'] != 0)
 			];
-			$ret['template'] = \MyBB\template('misc/attachments_attachment.twig', [
+			$ret['template'] = \MyBB\template('misc_attachments_attachment', [
 				'attachment' => $attachment,
 			]);
 
@@ -613,7 +613,7 @@ if(!$mybb->input['action'] || $mybb->input['action'] == "editpost")
 		$posticons = get_post_icons();
 	}
 
-	$loginbox = \MyBB\template('misc/changeuserbox.twig');
+	$loginbox = \MyBB\template('misc_changeuserbox');
 
 	$editpost['showdelete'] = false;
 	if($post['visible'] != -1 && (($thread['firstpost'] == $pid && (is_moderator($fid, "candeletethreads") || $forumpermissions['candeletethreads'] == 1 && $mybb->user['uid'] == $post['uid'])) || ($thread['firstpost'] != $pid && (is_moderator($fid, "candeleteposts") || $forumpermissions['candeleteposts'] == 1 && $mybb->user['uid'] == $post['uid']))))
@@ -943,7 +943,7 @@ if(!$mybb->input['action'] || $mybb->input['action'] == "editpost")
 
 	$php_max_upload_size = get_php_upload_limit();
 	$php_max_file_uploads = (int)ini_get('max_file_uploads');
-	$post_javascript = \MyBB\template('misc/post_javascript.twig', [
+	$post_javascript = \MyBB\template('misc_post_javascript', [
 		'php_max_upload_size' => $php_max_upload_size,
 		'php_max_file_uploads' => $php_max_file_uploads,
 	]);
@@ -972,7 +972,7 @@ if(!$mybb->input['action'] || $mybb->input['action'] == "editpost")
 		$editpost['emptyiconcheck'] = true;
 	}
 
-	output_page(\MyBB\template('editpost/editpost.twig', [
+	output_page(\MyBB\template('editpost_editpost', [
 		'editpost' => $editpost,
 		'post_errors' => $post_errors,
 		'loginbox' => $loginbox,

@@ -1,5 +1,5 @@
 <div class="select-field">
-    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
     <select name="prefix">
         {% for prefix in prefixes %}
             <option value="{{ prefix.pid }}"{% if prefix.pid == selected %} selected="selected"{% endif %}>

@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ trans('profile', memprofile.username) }} - {{ mybb.settings.bbname }}</title>
@@ -33,12 +33,12 @@
                     {% if memprofile.showbuddy %}
                         {% if memprofile.onbuddylist %}
                             <a href="usercp.php?action=do_editlists&amp;delete={{ memprofile.uid }}&amp;my_post_key={{ mybb.post_code }}" class="button button--secondary button--half-width remove_buddy_button">
-                                {{ include('partials/icon.twig', {icon: 'user-times', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'user-times', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.remove_from_buddy_list }}</span>
                             </a>
                         {% else %}
                             <a href="usercp.php?action=do_editlists&amp;add_username={{ memprofile.username }}&amp;my_post_key={{ mybb.post_code }}" class="button button--secondary button--half-width add_buddy_button">
-                                {{ include('partials/icon.twig', {icon: 'heart', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'heart', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.add_to_buddy_list }}</span>
                             </a>
                         {% endif %}
@@ -46,26 +46,26 @@
                     {% if memprofile.showignore %}
                         {% if memprofile.onignorelist %}
                             <a href="usercp.php?action=do_editlists&amp;manage=ignored&amp;delete={{ memprofile.uid }}&amp;my_post_key={{ mybb.post_code }}" class="button button--secondary button--half-width remove_ignore_button">
-                                {{ include('partials/icon.twig', {icon: 'shield-alt', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'shield-alt', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.remove_from_ignore_list }}</span>
                             </a>
                         {% else %}
                             <a href="usercp.php?action=do_editlists&amp;manage=ignored&amp;add_username={{ memprofile.username }}&amp;my_post_key={{ mybb.post_code }}" class="button button--secondary button--half-width add_ignore_button">
-                                {{ include('partials/icon.twig', {icon: 'shield-alt', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'shield-alt', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.add_to_ignore_list }}</span>
                             </a>
                         {% endif %}
                     {% endif %}
                     {% if memprofile.showreport %}
                         <a href="javascript:Report.reportUser({{ memprofile.uid }});" class="button button--secondary button--half-width report_user_button">
-                            {{ include('partials/icon.twig', {icon: 'flag', class: 'button__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'flag', class: 'button__icon'}, with_context = false) }}
                             <span class="button__text">{{ lang.report_user }}</span>
                         </a>
                     {% endif %}
                 {% endif %}
                 {% if memprofile.showpm %}
                     <a href="private.php?action=send&amp;uid={{ memprofile.uid }}" class="button button--half-width">
-                        {{ include('partials/icon.twig', {icon: 'envelope', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'envelope', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.send_message }}</span>
                     </a>
                 {% endif %}
@@ -116,7 +116,7 @@
                     {% if mybb.usergroup.cansearch %}
                         <div class="row__secondary">
                             <a href="search.php?action=finduser&amp;uid={{ memprofile.uid }}" class="button button--basic">
-                                {{ include('partials/icon.twig', {icon: 'search', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'search', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.find_posts }}</span>
                             </a>
                         </div>
@@ -132,7 +132,7 @@
                     {% if mybb.usergroup.cansearch %}
                         <div class="row__secondary">
                             <a href="search.php?action=finduserthreads&amp;uid={{ memprofile.uid }}" class="button button--basic">
-                                {{ include('partials/icon.twig', {icon: 'search', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'search', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.find_threads }}</span>
                             </a>
                         </div>
@@ -148,12 +148,12 @@
                         </div>
                         <div class="row__secondary">
                             <a href="reputation.php?uid={{ memprofile.uid }}" class="button button--basic">
-                                {{ include('partials/icon.twig', {icon: 'info-circle', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'info-circle', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.reputation_details }}</span>
                             </a>
                             {% if memprofile.showvote %}
                                 <a href="javascript:void(0)" onclick="MyBB.reputation({{ memprofile.uid }}); return false;" class="button button--basic">
-                                    {{ include('partials/icon.twig', {icon: 'thumbs-up', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'thumbs-up', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.reputation_vote }}</span>
                                 </a>
                             {% endif %}
@@ -177,7 +177,7 @@
                         {% if memprofile.warn_user %}
                             <div class="row__secondary">
                                 <a href="warnings.php?action=warn&amp;uid={{ memprofile.uid }}" class="button button--basic">
-                                    {{ include('partials/icon.twig', {icon: 'exclamation-triangle', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'exclamation-triangle', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.warn }}</span>
                                 </a>
                             </div>
@@ -249,23 +249,23 @@
                         <div class="row">
                             {% if memprofile.showeditprofile %}
                                 <a href="{{ mybb.settings.bburl }}/modcp.php?action=editprofile&amp;uid={{ memprofile.uid }}#usernotes" class="button button--inline button--basic">
-                                    {{ include('partials/icon.twig', {icon: 'edit', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'edit', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.edit_usernotes }}</span>
                                 </a>
                                 <a href="{{ mybb.settings.bburl }}/modcp.php?action=editprofile&amp;uid={{ memprofile.uid }}" class="button button--inline button--basic">
-                                    {{ include('partials/icon.twig', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.edit_in_mcp }}</span>
                                 </a>
                             {% endif %}
                             {% if memprofile.showbanuser %}
                                 <a href="{{ mybb.settings.bburl }}/modcp.php?action=banuser&amp;uid={{ memprofile.uid }}" class="button button--inline button--basic">
-                                    {{ include('partials/icon.twig', {icon: 'gavel', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'gavel', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.ban_in_mcp }}</span>
                                 </a>
                             {% endif %}
                             {% if memprofile.showpurgespammer %}
                                 <a href="{{ mybb.settings.bburl }}/moderation.php?action=purgespammer&amp;uid={{ memprofile.uid }}" class="button button--inline button--basic">
-                                    {{ include('partials/icon.twig', {icon: 'user-slash', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'user-slash', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.purgespammer }}</a>
                             {% endif %}
                         </div>
@@ -278,11 +278,11 @@
                     <div class="row">
                         {% if memperms.isbannedgroup %}
                             <a href="{{ mybb.settings.bburl }}/{{ memprofile.admin_dir }}/index.php?module=user-users&amp;action=edit&amp;uid={{ memprofile.uid }}" class="button button--inline button--basic">
-                                {{ include('partials/icon.twig', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.admin_edit_in_acp }}</span>
                             </a>
                             <a href="{{ mybb.settings.bburl }}/{{ memprofile.admin_dir }}/index.php?module=user-banning&amp;action=edit&amp;uid={{ memprofile.uid }}" class="button button--inline button--basic">
-                                {{ include('partials/icon.twig', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.admin_edit_ban_in_acp }}</span>
                             </a>
                             <a href="{{ mybb.settings.bburl }}/{{ memprofile.admin_dir }}/index.php?module=user-banning&amp;action=lift&amp;uid={{ memprofile.uid }}" class="button button--inline button--basic">
@@ -290,11 +290,11 @@
                             </a>
                         {% else %}
                             <a href="{{ mybb.settings.bburl }}/{{ memprofile.admin_dir }}/index.php?module=user-users&amp;action=edit&amp;uid={{ memprofile.uid }}" class="button button--inline button--basic">
-                                {{ include('partials/icon.twig', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.admin_edit_in_acp }}</span>
                             </a>
                             <a href="{{ mybb.settings.bburl }}/{{ memprofile.admin_dir }}/index.php?module=user-banning&amp;uid={{ memprofile.uid }}" class="button button--inline button--basic">
-                                {{ include('partials/icon.twig', {icon: 'gavel', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'gavel', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.admin_ban_in_acp }}</span>
                             </a>
                         {% endif %}

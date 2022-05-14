@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.edit_post }} - {{ mybb.settings.bbname }}</title>
@@ -29,7 +29,7 @@
         {{ post_errors|raw }}
         {% if editpost.showmodnotice %}
             <div class="alert alert--red-alert">
-                {{ include('partials/icon.twig', {icon: 'exclamation-triangle', class: 'alert__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'exclamation-triangle', class: 'alert__icon'}, with_context = false) }}
                 <div class="alert__message">{{ editpost.moderation_text }}</div>
             </div>
         {% endif %}
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form__submit">
                         <button type="submit" class="button button--medium" name="submit">
-                            {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                             <span class="button__text">{{ lang.delete_post }}</span>
                         </button>
                     </div>
@@ -70,7 +70,7 @@
                         <div class="compose__subject">
                             {% if editpost.showprefixes %}
                                 <div class="select-field select-field--subject">
-                                    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                     <select name="threadprefix">
                                         <option value="0">{{ lang.no_prefix }}</option>
                                         {% for prefix in prefixes %}
@@ -84,7 +84,7 @@
                     </div>
 
                     {% if editpost.showposticons %}
-                        {% include 'misc/posticons.twig' %}
+                        {% include 'misc_posticons' %}
                     {% endif %}
 
                     <div class="row row--form field">
@@ -99,24 +99,24 @@
                         <div class="compose__option-buttons">
                             {% if editpost.showpostoptions %}
                                 <label for="show-post-options" class="button button--basic compose__option-button--options">
-                                    {{ include('partials/icon.twig', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.options }}</span>
                                 </label>
                             {% endif %}
                             {% if editpost.showpollbox %}
                                 <label for="show-post-poll" class="button button--basic compose__option-button--poll">
-                                    {{ include('partials/icon.twig', {icon: 'plus-circle', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'plus-circle', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.add_poll }}</span>
                                 </label>
                             {% endif %}
                             {% if editpost.showattachments %}
                                 <label for="show-attachments" class="button button--basic compose__option-button--attachments">
-                                    {{ include('partials/icon.twig', {icon: 'paperclip', class: 'button__icon'}, with_context = false) }}
+                                    {{ include('partials_icon', {icon: 'paperclip', class: 'button__icon'}, with_context = false) }}
                                     <span class="button__text">{{ lang.upload_attachments }}</span>
                                 </label>
                             {% endif %}
                             <button type="submit" name="previewpost" value="preview" class="button button--basic">
-                                {{ include('partials/icon.twig', {icon: 'edit', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'edit', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.preview_post }}</span>
                             </button>
                         </div>
@@ -156,19 +156,19 @@
                     </section>
                 {% endif %}
 
-                {% include 'misc/subscriptionmethod.twig' %}
+                {% include 'misc_subscriptionmethod' %}
 
                 {% if editpost.showpollbox %}
-                    {% include 'misc/postpoll.twig' %}
+                    {% include 'misc_postpoll' %}
                 {% endif %}
 
                 {% if editpost.showattachments %}
-                    {% include 'misc/attachments.twig' %}
+                    {% include 'misc_attachments' %}
                 {% endif %}
 
                 <div class="form__submit">
                     <button type="submit" class="button button--big" name="submitbutton" tabindex="3" accesskey="s">
-                        {{ include('partials/icon.twig', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.update_post }}</span>
                     </button>
                 </div>

@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.login }} - {{ mybb.settings.bbname }}</title>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form__submit">
                     <button type="submit" class="button button--big">
-                        {{ include('partials/icon.twig', {icon: 'sign-in-alt', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'sign-in-alt', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.login }}</span>
                     </button>
                 </div>

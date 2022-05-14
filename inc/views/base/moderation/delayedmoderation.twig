@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.delayed_moderation }} - {{ mybb.settings.bbname }}</title>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="row__controls">
                         <a href="moderation.php?action=cancel_delayedmoderation&amp;tid={{ delayed.tid }}&amp;fid={{ delayed.fid }}&amp;did={{ delayedmod.did }}&amp;my_post_key={{ mybb.post_code }}" class="button button--danger">
-                            {{ include('partials/icon.twig', {icon: 'times', class: 'button__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'times', class: 'button__icon'}, with_context = false) }}
                             <span class="button__text">{{ lang.cancel }}</span>
                         </a>
                     </div>
@@ -102,7 +102,7 @@
                                 <div class="date-field__item">
                                     <h4 class="date-field__name">{{ lang.day }}</h4>
                                     <div class="select-field">
-                                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                         <select name="date_day">
                                             {% for day in days %}
                                                 <option value="{{ day.day }}"{% if day.selected %} selected="selected"{% endif %}>{{ day.day }}</option>
@@ -113,7 +113,7 @@
                                 <div class="date-field__item">
                                     <h4 class="date-field__name">{{ lang.month }}</h4>
                                     <div class="select-field">
-                                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                         <select name="date_month">
                                             {% for month in months %}
                                                 <option value="{{ month.month }}"{% if month.selected %} selected="selected"{% endif %}>{{ month.name }}</option>
@@ -201,7 +201,7 @@
                                         <div class="row row--form field">
                                             <h5 class="field__name">{{ lang.new_forum }}</h5>
                                             <div class="select-field">
-                                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                                 {{ forumselect|raw }}
                                             </div>
                                         </div>
@@ -269,7 +269,7 @@
                 </div>
                 <div class="form__submit">
                     <button type="submit" class="button button--medium">
-                        {{ include('partials/icon.twig', {icon: 'arrow-alt-circle-right', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'arrow-alt-circle-right', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.save_delayed_moderation }}</span>
                     </button>
                 </div>

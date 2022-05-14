@@ -19,12 +19,12 @@
             {% endif %}
         {% endif %}
         <button type="submit" class="button button--secondary" name="rem_{{ attachment.aid }}" value="rem" onclick="return Post.removeAttachment({{ attachment.aid }});">
-            {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+            {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
             <span class="button__text">{{ lang.remove_attachment }}</span>
         </button>
         {% if attachment.showinsert %}
             <button type="button" class="button" name="insert" value="insert" onclick="$('#message').sceditor('instance').insertText('[attachment={{ attachment.aid }}]'); return false;">
-                {{ include('partials/icon.twig', {icon: 'long-arrow-alt-up', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'long-arrow-alt-up', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.insert_attachment_post }}</span>
             </button>
         {% endif %}

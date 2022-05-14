@@ -1,4 +1,4 @@
-{% extends 'layouts/messenger.twig' %}
+{% extends 'layouts_messenger' %}
 
 {% block head %}
     <title>{{ lang.viewing_pm }} {{ pm.subject }} - {{ mybb.settings.bbname }}</title>
@@ -54,15 +54,15 @@
                 </div>
                 <div class="post__foot">
                     <button type="submit" class="button" tabindex="2" accesskey="s" id="quick_reply_submit">
-                        {{ include('partials/icon.twig', {icon: 'paper-plane', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'paper-plane', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.send_message }}</span>
                     </button>
                     <label for="show-quick-reply-options" class="button button--basic">
-                        {{ include('partials/icon.twig', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.options }}</span>
                     </label>
                     <button type="submit" class="button button--basic" name="preview" value="preview" tabindex="3">
-                        {{ include('partials/icon.twig', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.preview }}</span>
                     </button>
                 </div>

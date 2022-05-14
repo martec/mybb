@@ -1,4 +1,4 @@
-{% extends 'layouts/messenger.twig' %}
+{% extends 'layouts_messenger' %}
 
 {% block head %}
     <title>{{ lang.empty_folders }} - {{ mybb.settings.bbname }}</title>
@@ -36,7 +36,7 @@
             </section>
             <div class="form__submit">
                 <button type="submit" class="button button--medium" name="submit">
-                    {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.delete }}</span>
                 </button>
             </div>

@@ -1,4 +1,4 @@
-{% extends 'layouts/messenger.twig' %}
+{% extends 'layouts_messenger' %}
 
 {% block head %}
     <title>{{ lang.private_messaging }} - {{ mybb.settings.bbname }}</title>
@@ -13,7 +13,7 @@
 {% block messengerBody %}
     {% if mybb.usergroup.pmquota and private.pmtotal >= mybb.usergroup.pmquota %}
         <section class="alert alert--danger">
-            {{ include('partials/icon.twig', {icon: 'exclamation-triangle', class: 'alert__icon'}, with_context = false) }}
+            {{ include('partials_icon', {icon: 'exclamation-triangle', class: 'alert__icon'}, with_context = false) }}
             <div class="alert__message">
                 <h1 class="alert__title">{{ lang.reached_warning }}</h1>
                 <p class="alert__description">{{ lang.reached_warning2 }}</p>
@@ -25,11 +25,11 @@
         <div class="messenger__search">
             <input type="text" name="keywords" placeholder="{{ lang.enter_keywords }}" class="textbox textbox--large" size="25" />
             <button type="submit" class="button button--inline" name="quick_search" value="search">
-                {{ include('partials/icon.twig', {icon: 'search', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'search', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.search_pms }}</span>
             </button>
             <a href="private.php?action=advanced_search" class="messenger__advanced-search button button--basic button--inline">
-                {{ include('partials/icon.twig', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.advanced_search }}</span>
             </a>
         </div>
@@ -39,9 +39,9 @@
                 <span class="sort-threads__order">
                     <a href="private.php?fid={{ private.folder }}&amp;sortby={{ sortby }}&amp;order={{ private.oppsortnext }}" class="sort-messages__link">
                         {% if private.oppsortnext == 'asc' %}
-                            {{ include('partials/icon.twig', {icon: 'chevron-circle-up', class: '', title: private.oppsort}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'chevron-circle-up', class: '', title: private.oppsort}, with_context = false) }}
                         {% else %}
-                            {{ include('partials/icon.twig', {icon: 'chevron-circle-down', class: '', title: private.oppsort}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'chevron-circle-down', class: '', title: private.oppsort}, with_context = false) }}
                         {% endif %}
                     </a>
                 </span>
@@ -75,18 +75,18 @@
             </div>
             <div class="message-list__container">
                 {% for message in messagelist %}
-                    {% include 'private/private/item.twig' %}
+                    {% include 'private_private_item' %}
                 {% else %}
                     <div class="alert alert--no-results">{{ lang.nomessages }}</div>
                 {% endfor %}
             </div>
             <div class="sort-results">
                 <button type="submit" class="button button--inline" name="moveto" value="move">
-                    {{ include('partials/icon.twig', {icon: 'arrow-right', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'arrow-right', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.move_to }}</span>
                 </button>
                 <div class="select-field">
-                    {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                     <select name="fid">
                         {% for folder in folders %}
                             {% if folder.id != 1 %}
@@ -97,7 +97,7 @@
                 </div>
                 <span class="sort-results__text">{{ lang.or }}</span>
                 <button type="submit" class="button button--inline" name="delete" value="delete">
-                    {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.delete }}</span>
                 </button>
                 <span class="sort-results__text">{{ lang.selected_messages }}</span>
@@ -126,16 +126,16 @@
     <div class="page-controls">
         <div class="page-buttons">
             <a href="private.php?action=folders" class="button button--basic button--inline">
-                {{ include('partials/icon.twig', {icon: 'folder-open', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'folder-open', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.manage_folders }}</span>
             </a>
             {% if mybb.user.totalpms %}
                 <a href="private.php?action=empty" class="button button--basic button--inline">
-                    {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.empty_folders2 }}</span>
                 </a>
                 <a href="private.php?action=export" class="button button--basic button--inline">
-                    {{ include('partials/icon.twig', {icon: 'download', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'download', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.export_messages2 }}</span>
                 </a>
             {% endif %}

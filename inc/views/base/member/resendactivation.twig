@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.resend_activation }} - {{ mybb.settings.bbname }}</title>
@@ -19,7 +19,7 @@
                 </section>
                 <div class="form__submit">
                     <button type="submit" class="button button--medium" name="submit" tabindex="3">
-                        {{ include('partials/icon.twig', {icon: 'sync-alt', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'sync-alt', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.request_activation }}</span>
                     </button>
                 </div>

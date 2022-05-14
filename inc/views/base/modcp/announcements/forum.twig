@@ -3,7 +3,7 @@
     <div class="row__controls">
         {% if moderate %}
             <a href="modcp.php?action=new_announcement&amp;fid={{ forum.fid }}" class="button button--small">
-                {{ include('partials/icon.twig', {icon: 'plus', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'plus', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.add_announcement }}</span>
             </a>
         {% endif %}
@@ -19,17 +19,17 @@
                 {% set title = lang.active_announcement %}
                 {% set class = 'primary' %}
             {% endif %}
-            {{ include('partials/icon.twig', {icon: 'circle', class: 'icon icon--announcement icon--' ~ class, title: title}, with_context = false) }}
+            {{ include('partials_icon', {icon: 'circle', class: 'icon icon--announcement icon--' ~ class, title: title}, with_context = false) }}
             {# <div class="subforumicon subforum_minioff" title="{{ lang[announcement.icon ~ '_announcement'] }}"></div> #}
             <a href="announcements.php?aid={{ aid }}">{{ announcement.subject }}</a>
         </div>
         <div class="row__controls">
             <a href="modcp.php?action=edit_announcement&amp;aid={{ aid }}" class="button button--secondary button--small">
-                {{ include('partials/icon.twig', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'pencil-alt', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.edit }}</span>
             </a>
             <a href="modcp.php?action=delete_announcement&amp;aid={{ aid }}" class="button button--secondary button--small">
-                {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                 <span class="button__text">{{ lang.delete }}</span>
             </a>
         </div>

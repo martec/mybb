@@ -1,4 +1,4 @@
-{% extends 'layouts/account.twig' %}
+{% extends 'layouts_account' %}
 
 {% block head %}
     <title>{{ lang.email }} - {{ mybb.settings.bbname }}</title>
@@ -14,7 +14,7 @@
     <form action="usercp.php" method="post">
         <input type="hidden" name="my_post_key" value="{{ mybb.post_code }}" />
 
-        {% include 'usercp/profile_menu.twig' %}
+        {% include 'usercp_profile_menu' %}
 
         {{ errors|raw }}
 
@@ -43,7 +43,7 @@
             </section>
             <div class="form__submit">
                 <button type="submit" class="button button--medium" name="submit">
-                    {{ include('partials/icon.twig', {icon: 'at', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'at', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.update_email }}</span>
                 </button>
             </div>

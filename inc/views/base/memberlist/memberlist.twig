@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.member_list }} - {{ mybb.settings.bbname }}</title>
@@ -12,11 +12,11 @@
         <div class="page-controls page-controls--top">
             <div class="page-buttons">
                 <a href="showteam.php" class="button button--secondary">
-                    {{ include('partials/icon.twig', {icon: 'address-book', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'address-book', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.forumteam }}</span>
                 </a>
                 <a href="#member-search" class="button">
-                    {{ include('partials/icon.twig', {icon: 'search', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'search', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.search_members }}</span>
                 </a>
             </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="user-list">
             {% for user in users %}
-                {% include 'memberlist/memberlist_row.twig' %}
+                {% include 'memberlist_memberlist_row' %}
             {% else %}
             <div class="alert alert--no-results">{{ lang.error_no_members|raw }}</div>
             {% endfor %}
@@ -58,7 +58,7 @@
                     <div class="section__container">
                         <div class="row row--form field">
                             <div class="select-field">
-                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                 <select name="sort" id="sort" style="width: 99%;">
                                     <option value="username"{% if memberlist.sort.username %} selected="selected"{% endif %}>{{ lang.sort_by_username }}</option>
                                     <option value="regdate"{% if memberlist.sort.regdate %} selected="selected"{% endif %}>{{ lang.sort_by_regdate }}</option>
@@ -87,11 +87,11 @@
                 </div>
                 <div class="form__submit">
                     <button type="submit" class="button">
-                        {{ include('partials/icon.twig', {icon: 'search', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'search', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.search }}</span>
                     </button>
                     <a href="memberlist.php?action=search" class="button button--secondary">
-                        {{ include('partials/icon.twig', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'cog', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.advanced_search }}</span>
                     </a>
                 </div>

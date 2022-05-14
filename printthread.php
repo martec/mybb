@@ -118,7 +118,7 @@ if($postcount > $perpage)
 	$pages = $postcount / $perpage;
 	$pages = ceil($pages);
 
-	$multipage = \MyBB\template('printthread/multipage.twig', [
+	$multipage = \MyBB\template('printthread_multipage', [
 		'pages' => $pages,
 		'currentPage' => $page,
 		'url' => "printthread.php?tid={$tid}"
@@ -221,7 +221,7 @@ foreach($postrow_cache as $postrow)
 
 $plugins->run_hooks('printthread_end');
 
-output_page(\MyBB\template('printthread/printthread.twig', [
+output_page(\MyBB\template('printthread_printthread', [
 	'posts' => $posts,
 	'thread' => $thread,
 	'tdepth' => $tdepth,
@@ -254,7 +254,7 @@ function makeprintablenav($pid = 0, $depth = "--")
 		foreach($pforumcache[$pid] as $key => $forumnav)
 		{
 			$forumnav['link'] = get_forum_link($forumnav['fid']);
-			$forums .= \MyBB\template('printthread/nav.twig', [
+			$forums .= \MyBB\template('printthread_nav', [
 				'depth' => $depth,
 				'forum' => $forumnav
 			]);

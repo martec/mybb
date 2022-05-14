@@ -1,4 +1,4 @@
-{% extends 'layouts/account.twig' %}
+{% extends 'layouts_account' %}
 
 {% block head %}
     <title>{{ lang.unsubscribe_from_forum }}</title>
@@ -17,7 +17,7 @@
         <input type="hidden" name="type" value="forum" />
         <input type="hidden" name="fid" value="{{ forum.fid }}" />
 
-        {% include 'usercp/profile_menu.twig' %}
+        {% include 'usercp_profile_menu' %}
 
         {{ errors|raw }}
 

@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.warn_user }} - {{ mybb.settings.bbname }}</title>
@@ -14,7 +14,7 @@
             <section class="block">
                 <h1 class="title title--major">{{ lang.existing_post_warnings }}</h1>
                 {% for warning in warnings %}
-                    {% include 'warnings/warning_row.twig' %}
+                    {% include 'warnings_warning_row' %}
                 {% endfor %}
             </section>
         {% endif %}
@@ -103,7 +103,7 @@
                                             <h5 class="field__name"><label for="custom_expires">{{ lang.expires }}</label></h5>
                                             <input type="text" class="textbox textbox--small" name="expires" size="2" value="{{ type_checked.expires }}" />
                                             <div class="select-field">
-                                                {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                                                {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                                                 <select name="expires_period">
                                                     <option value="hours" {{ type_checked.hours }}>{{ lang.hour_or_hours }}</option>
                                                     <option value="days" {{ type_checked.days }}>{{ lang.day_or_days }}</option>
@@ -179,7 +179,7 @@
                 {% endif %}
                 <div class="form__submit">
                     <button type="submit" class="button button--medimu">
-                        {{ include('partials/icon.twig', {icon: 'exclamation-triangle', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'exclamation-triangle', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.warn_user }}</span>
                     </button>
                 </div>

@@ -671,7 +671,7 @@ if($mybb->input['action'] == "results")
 		$results['sid'] = $sid;
 		$plugins->run_hooks("search_results_end");
 
-		output_page(\MyBB\template('search/results_threads.twig', [
+		output_page(\MyBB\template('search_results_threads', [
 			'multipage' => $multipage,
 			'results' => $results,
 			'threads' => $threads,
@@ -1047,7 +1047,7 @@ if($mybb->input['action'] == "results")
 		$results['sid'] = $sid;
 		$plugins->run_hooks("search_results_end");
 
-		output_page(\MyBB\template('search/results_posts.twig', [
+		output_page(\MyBB\template('search_results_posts', [
 			'multipage' => $multipage,
 			'results' => $results,
 			'posts' => $posts,
@@ -1692,7 +1692,7 @@ else
 
 	$plugins->run_hooks("search_end");
 
-	output_page(\MyBB\template('search/search.twig', [
+	output_page(\MyBB\template('search_search', [
 		'search' => $search,
 		'forums' => $forums,
 		'prefixes' => $prefixes,

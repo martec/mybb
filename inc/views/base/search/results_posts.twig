@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.search_results }} - {{ mybb.settings.bbname }}</title>
@@ -16,9 +16,9 @@
             <span class="sort-threads__order">
                 <a href="{{ results.sorturl|raw }}&amp;sortby={{ results.sortby }}&amp;order={{ results.oppsortnext }}">
                     {% if results.oppsort == 'asc' %}
-                        {{ include('partials/icon.twig', {icon: 'chevron-circle-up', class: '', title: results.oppsort}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'chevron-circle-up', class: '', title: results.oppsort}, with_context = false) }}
                     {% else %}
-                        {{ include('partials/icon.twig', {icon: 'chevron-circle-down', class: '', title: results.oppsort}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'chevron-circle-down', class: '', title: results.oppsort}, with_context = false) }}
                     {% endif %}
                 </a>
             </span>
@@ -53,7 +53,7 @@
         {% endif %}
         <div class="thread-list__container">
             {% for post in posts %}
-                {% include 'search/results_posts_row.twig' %}
+                {% include 'search_results_posts_row' %}
             {% endfor %}
         </div>
 
@@ -67,7 +67,7 @@
                     <input type="hidden" name="searchid" value="{{ results.sid }}" />
                     <input type="hidden" name="modtype" value="inlinepost" />
                     <div class="select-field">
-                        {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                         <select name="action">
                             <optgroup label="{{ lang.standard_mod_tools }}">
                                 <option value="multisoftdeleteposts">{{ lang.inline_soft_delete_posts }}</option>

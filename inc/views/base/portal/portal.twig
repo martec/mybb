@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ mybb.settings.bbname }}</title>
@@ -12,7 +12,7 @@
     </header>
     <div class="page-content page-content--sidebar">
         {% for announcement in announcements %}
-            {% include 'portal/portal_announcement.twig' %}
+            {% include 'portal_portal_announcement' %}
         {% endfor %}
         {{ multipage|raw }}
     </div>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form__submit">
                             <button type="submit" name="loginsubmit" class="button button--medium">
-                                {{ include('partials/icon.twig', {icon: 'sign-in-alt', class: 'button__icon'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'sign-in-alt', class: 'button__icon'}, with_context = false) }}
                                 <span class="button__text">{{ lang.login }}</span>
                             </button>
                         </div>

@@ -1,4 +1,4 @@
-{% extends 'layouts/messenger.twig' %}
+{% extends 'layouts_messenger' %}
 
 {% block head %}
     <title>{{ lang.pm_tracking }} - {{ mybb.settings.bbname }}</title>
@@ -44,12 +44,12 @@
             {% if unreadmessages %}
                 <div class="sort-results">
                     <button type="submit" class="button" name="stoptrackingunread" value="stop">
-                        {{ include('partials/icon.twig', {icon: 'ban', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'ban', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.stop_tracking }}</span>
                     </button>
                     <span class="sort-results__text">{{ lang.or }}</span>
                     <button type="submit" class="button" name="cancel" value="cancel">
-                        {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.delete }}</span>
                     </button>
                     <span class="sort-results__text">{{ lang.selected_messages }}</span>
@@ -89,12 +89,12 @@
                 {% if readmessages %}
                     <div class="sort-results">
                         <button type="submit" class="button button--inline" name="stoptracking" value="stop">
-                            {{ include('partials/icon.twig', {icon: 'ban', class: 'button__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'ban', class: 'button__icon'}, with_context = false) }}
                             <span class="button__text">{{ lang.stop_tracking }}</span>
                         </button>
                         <span class="sort-results__text">{{ lang.selected_messages }} {{ lang.or }}</span>
                         <a href="private.php?action=stopalltracking&amp;my_post_key={{ mybb.post_code }}" class="button button--inline">
-                            {{ include('partials/icon.twig', {icon: 'times', class: 'button__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'times', class: 'button__icon'}, with_context = false) }}
                             <span class="button__text">{{ lang.stop_tracking_all }}</span>
                         </a>
                     </div>

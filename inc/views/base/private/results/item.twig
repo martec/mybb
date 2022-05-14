@@ -15,11 +15,11 @@
                     <span class="message__icon"><img src="{{ message.icon_path }}" alt="{{ message.icon_name }}" title="{{ message.icon_name }}" /></span>
                 {% endif %}
                 {% if message.msgstatus == 'new_pm' %}
-                    {{ include('partials/icon.twig', {icon: 'envelope', class: 'message__icon message__icon--new_pm'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'envelope', class: 'message__icon message__icon--new_pm'}, with_context = false) }}
                 {% elseif message.msgstatus == 're_pm' %}
-                    {{ include('partials/icon.twig', {icon: 'reply', class: 'message__icon message__icon--re_pm'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'reply', class: 'message__icon message__icon--re_pm'}, with_context = false) }}
                 {% elseif message.msgstatus == 'fw_pm' %}
-                    {{ include('partials/icon.twig', {icon: 'share', class: 'message__icon message__icon--fw_pm'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'share', class: 'message__icon message__icon--fw_pm'}, with_context = false) }}
                 {% endif %}
             </span>
         </h3>

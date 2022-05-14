@@ -86,14 +86,14 @@ if($mybb->input['action'] == "add" || $mybb->input['action'] == "do_add")
 	{
 		if($mybb->input['nomodal'])
 		{
-			output_page(\MyBB\template('reputation/add_error_nomodal.twig', [
+			output_page(\MyBB\template('reputation_add_error_nomodal', [
 				'message' => $message,
 			]));
 			exit;
 		}
 		else
 		{
-			output_page(\MyBB\template('reputation/add_error.twig', [
+			output_page(\MyBB\template('reputation_add_error', [
 				'message' => $message,
 			]));
 			exit;
@@ -228,14 +228,14 @@ if($mybb->input['action'] == "add" || $mybb->input['action'] == "do_add")
 		{
 			if($mybb->input['nomodal'])
 			{
-				output_page(\MyBB\template('reputation/add_error_nomodal.twig', [
+				output_page(\MyBB\template('reputation_add_error_nomodal', [
 					'message' => $message,
 				]));
 				exit;
 			}
 			else
 			{
-				output_page(\MyBB\template('reputation/add_error.twig', [
+				output_page(\MyBB\template('reputation_add_error', [
 					'message' => $message,
 				]));
 				exit;
@@ -279,7 +279,7 @@ if($mybb->input['action'] == "do_add" && $mybb->request_method == "post")
 
 		$db->update_query("users", array('reputation' => (int)$reputation_value), "uid='{$uid}'");
 
-		output_page(\MyBB\template('reputation/deleted.twig'));
+		output_page(\MyBB\template('reputation_deleted'));
 		exit;
 	}
 
@@ -323,14 +323,14 @@ if($mybb->input['action'] == "do_add" && $mybb->request_method == "post")
 	{
 		if($mybb->input['nomodal'])
 		{
-			output_page(\MyBB\template('reputation/add_error_nomodal.twig', [
+			output_page(\MyBB\template('reputation_add_error_nomodal', [
 				'message' => $message,
 			]));
 			exit;
 		}
 		else
 		{
-			output_page(\MyBB\template('reputation/add_error.twig', [
+			output_page(\MyBB\template('reputation_add_error', [
 				'message' => $message,
 			]));
 			exit;
@@ -377,7 +377,7 @@ if($mybb->input['action'] == "do_add" && $mybb->request_method == "post")
 
 	$plugins->run_hooks("reputation_do_add_end");
 
-	output_page(\MyBB\template('reputation/added.twig'));
+	output_page(\MyBB\template('reputation_added'));
 	exit;
 }
 
@@ -416,7 +416,7 @@ if($mybb->input['action'] == "add")
 
 		$plugins->run_hooks("reputation_add_end");
 
-		output_page(\MyBB\template('reputation/add.twig', [
+		output_page(\MyBB\template('reputation_add', [
 			'user' => $user,
 			'existing_reputation' => $existing_reputation,
 			'vote_check' => $vote_check,
@@ -433,14 +433,14 @@ if($mybb->input['action'] == "add")
 		{
 			if($mybb->input['nomodal'])
 			{
-				output_page(\MyBB\template('reputation/add_error_nomodal.twig', [
+				output_page(\MyBB\template('reputation_add_error_nomodal', [
 					'message' => $message,
 				]));
 				exit;
 			}
 			else
 			{
-				output_page(\MyBB\template('reputation/add_error.twig', [
+				output_page(\MyBB\template('reputation_add_error', [
 					'message' => $message,
 				]));
 				exit;
@@ -977,7 +977,7 @@ if(!$mybb->input['action'])
 
 	$plugins->run_hooks("reputation_end");
 
-	output_page(\MyBB\template('reputation/reputation.twig', [
+	output_page(\MyBB\template('reputation_reputation', [
 		'user' => $user,
 		'multipage' => $multipage,
 		'reputation_votes' => $reputation_votes,

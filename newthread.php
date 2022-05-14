@@ -114,13 +114,13 @@ if($forum['allowpicons'] != 0)
 // If we have a currently logged in user then fetch the change user box.
 if($mybb->user['uid'] != 0)
 {
-	$loginbox = \MyBB\template('misc/changeuserbox.twig');
+	$loginbox = \MyBB\template('misc_changeuserbox');
 }
 
 // Otherwise we have a guest, determine the "username" and get the login box.
 else
 {
-	$loginbox = \MyBB\template('misc/loginbox.twig');
+	$loginbox = \MyBB\template('misc_loginbox');
 }
 
 // If we're not performing a new thread insert and not editing a draft then we're posting a new thread.
@@ -178,7 +178,7 @@ if($mybb->settings['enableattachments'] == 1 && ($mybb->get_input('newattachment
 				'showmodapproval' => false,
 				'showinsert' => ($mybb->settings['bbcodeinserter'] != 0 && $forum['allowmycode'] != 0 && $mybb->user['showcodebuttons'] != 0)
 			];
-			$ret['template'] = \MyBB\template('misc/attachments_attachment.twig', [
+			$ret['template'] = \MyBB\template('misc_attachments_attachment', [
 				'attachment' => $attachment,
 			]);
 
@@ -1115,7 +1115,7 @@ if($mybb->input['action'] == "newthread" || $mybb->input['action'] == "editdraft
 
 	$php_max_upload_size = get_php_upload_limit();
 	$php_max_file_uploads = (int)ini_get('max_file_uploads');
-	$post_javascript = \MyBB\template('misc/post_javascript.twig', [
+	$post_javascript = \MyBB\template('misc_post_javascript', [
 		'php_max_upload_size' => $php_max_upload_size,
 		'php_max_file_uploads' => $php_max_file_uploads,
 	]);
@@ -1145,7 +1145,7 @@ if($mybb->input['action'] == "newthread" || $mybb->input['action'] == "editdraft
 		$newthread['emptyiconcheck'] = true;
 	}
 
-	output_page(\MyBB\template('newthread/newthread.twig', [
+	output_page(\MyBB\template('newthread_newthread', [
 		'newthread' => $newthread,
 		'thread_errors' => $thread_errors,
 		'loginbox' => $loginbox,

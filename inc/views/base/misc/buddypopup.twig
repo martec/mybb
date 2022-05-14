@@ -7,7 +7,7 @@
                     <h3 class="title title--minor">{{ lang.online }}</h3>
                     <div class="user-list user-list--has-title user-list--single-column user-list--compact">
                         {% for buddy in buddys.online %}
-                            {% include 'misc/buddypopup/user.twig' %}
+                            {% include 'misc_buddypopup_user' %}
                         {% else %}
                             <div class="alert alert--no-results">{{ lang.online_none }}</div>
                         {% endfor %}
@@ -15,7 +15,7 @@
                     <h3 class="title title--minor">{{ lang.offline }}</h3>
                     <div class="user-list user-list--has-title user-list--single-column user-list--compact">
                         {% for buddy in buddys.offline %}
-                            {% include 'misc/buddypopup/user.twig' %}
+                            {% include 'misc_buddypopup_user' %}
                         {% else %}
                             <div class="alert alert--no-results">{{ lang.offline_none }}</div>
                         {% endfor %}

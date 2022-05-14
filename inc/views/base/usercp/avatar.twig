@@ -1,4 +1,4 @@
-{% extends 'layouts/account.twig' %}
+{% extends 'layouts_account' %}
 
 {% block head %}
     <title>{{ lang.change_avatar }} - {{ mybb.settings.bbname }}</title>
@@ -14,7 +14,7 @@
     <form action="usercp.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="my_post_key" value="{{ mybb.post_code }}" />
 
-        {% include 'usercp/profile_menu.twig' %}
+        {% include 'usercp_profile_menu' %}
 
         {{ error|raw }}
 
@@ -67,12 +67,12 @@
             {% endif %}
             <div class="form__submit">
                 <button type="submit" class="button button--medium" name="submit">
-                    {{ include('partials/icon.twig', {icon: 'image', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'image', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.change_avatar }}</span>
                 </button>
                 {% if mybb.user.avatar %}
                     <button type="submit" class="button button--medium button--secondary" name="remove" value="remove">
-                        {{ include('partials/icon.twig', {icon: 'times', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'times', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.remove_avatar }}</span>
                     </button>
                 {% endif %}

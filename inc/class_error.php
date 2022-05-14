@@ -287,7 +287,7 @@ class errorHandler {
 			$lang->warnings = "The following warnings occurred:";
 		}
 
-		return \MyBB\template('misc/php_warnings.twig', [
+		return \MyBB\template('misc_php_warnings', [
 			'warnings' => $this->warnings
 		]);
 	}

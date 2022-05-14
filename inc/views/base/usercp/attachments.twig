@@ -1,4 +1,4 @@
-{% extends 'layouts/account.twig' %}
+{% extends 'layouts_account' %}
 
 {% block head %}
     <title>{{ lang.attachments_manager }} - {{ mybb.settings.bbname }}</title>
@@ -22,7 +22,7 @@
             </div>
             <div class="results">
                 {% for attachment in attachments %}
-                    {% include 'usercp/attachments/row.twig' %}
+                    {% include 'usercp_attachments_row' %}
                 {% else %}
                     <div class="alert alert--no-results">{{ lang.no_attachments }}</div>
                 {% endfor %}
@@ -31,7 +31,7 @@
                 <div class="sort-results">
                     <input type="hidden" name="action" value="do_attachments" />
                     <button type="submit" class="button">
-                        {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.delete_attachments }}</span>
                     </button>
                 </div>

@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.delete_threads }} - {{ mybb.settings.bbname }}</title>
@@ -15,7 +15,7 @@
             <section class="block block--form form">
                 <div class="form__submit">
                     <button type="submit" class="button button--medium">
-                        {{ include('partials/icon.twig', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'trash', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.delete_threads }}</span>
                     </button>
                 </div>

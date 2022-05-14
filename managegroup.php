@@ -226,7 +226,7 @@ elseif($mybb->input['action'] == "joinrequests")
 
 	$plugins->run_hooks("managegroup_joinrequests_end");
 
-	output_page(\MyBB\template('managegroup/joinrequests.twig', [
+	output_page(\MyBB\template('managegroup_joinrequests', [
 		'usergroup' => $usergroup,
 		'users' => $users,
 	]));
@@ -412,7 +412,7 @@ else
 
 	$plugins->run_hooks("managegroup_end");
 
-	output_page(\MyBB\template('managegroup/managegroup.twig', [
+	output_page(\MyBB\template('managegroup_managegroup', [
 		'usergroup' => $usergroup,
 		'groupleader' => $groupleader,
 		'leaders' => $leaders,

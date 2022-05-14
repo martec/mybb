@@ -1,4 +1,4 @@
-{% extends 'layouts/account.twig' %}
+{% extends 'layouts_account' %}
 
 {% block head %}
     <title>{{ lang.user_cp }} - {{ mybb.settings.bbname }}</title>
@@ -73,7 +73,7 @@
                                 <a href="{{ thread.threadlink }}" class="{{ thread.new_class }}">{{ thread.subject }}</a>
                                 {% if thread.lastread and thread.lastpost > thread.lastread %}
                                     <a href="{{ thread.newpostlink }}" class="thread__status">
-                                        {{ include('partials/icon.twig', {icon: 'circle', class: '', title: lang.goto_first_unread}, with_context = false) }}
+                                        {{ include('partials_icon', {icon: 'circle', class: '', title: lang.goto_first_unread}, with_context = false) }}
                                     </a>
                                 {% endif %}
                                 <span class="thread__icons">
@@ -105,7 +105,7 @@
             </div>
             <div class="block__footer-link">
                 <a href="usercp.php?action=subscriptions">
-                    {{ include('partials/icon.twig', {icon: 'plus-square', class: 'icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'plus-square', class: 'icon'}, with_context = false) }}
                     {{ lang.view_all_subscriptions }}
                 </a>
             </div>
@@ -139,7 +139,7 @@
                                 <a href="{{ thread.threadlink }}" class="{{ thread.new_class }}">{{ thread.subject }}</a>
                                 {% if thread.lastread and thread.lastpost > thread.lastread %}
                                     <a href="{{ thread.newpostlink }}" class="thread__status">
-                                        {{ include('partials/icon.twig', {icon: 'circle', class: '', title: lang.goto_first_unread}, with_context = false) }}
+                                        {{ include('partials_icon', {icon: 'circle', class: '', title: lang.goto_first_unread}, with_context = false) }}
                                     </a>
                                 {% endif %}
                                 <span class="thread__icons">
@@ -171,7 +171,7 @@
             </div>
             <div class="block__footer-link">
                 <a href="search.php?action=finduserthreads&amp;uid={{ mybb.user.uid }}">
-                    {{ include('partials/icon.twig', {icon: 'comments', class: 'icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'comments', class: 'icon'}, with_context = false) }}
                     {{ lang.find_all_threads }}
                 </a>
             </div>
@@ -215,7 +215,7 @@
             <div class="form__submit">
                 <input type="hidden" name="action" value="do_notepad" />
                 <button type="submit" class="button" name="submit">
-                    {{ include('partials/icon.twig', {icon: 'sticky-note', class: 'button__icon'}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'sticky-note', class: 'button__icon'}, with_context = false) }}
                     <span class="button__text">{{ lang.update_notepad }}</span>
                 </button>
             </div>

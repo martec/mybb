@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.search_results }} - {{ mybb.settings.bbname }}</title>
@@ -15,9 +15,9 @@
                 <span class="sort-threads__order">
                     <a href="{{ results.sorturl|raw }}&amp;sortby={{ results.sortby }}&amp;order={{ results.oppsortnext }}">
                         {% if results.oppsort == 'asc' %}
-                            {{ include('partials/icon.twig', {icon: 'chevron-circle-up', class: '', title: results.oppsort}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'chevron-circle-up', class: '', title: results.oppsort}, with_context = false) }}
                         {% else %}
-                            {{ include('partials/icon.twig', {icon: 'chevron-circle-down', class: '', title: results.oppsort}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'chevron-circle-down', class: '', title: results.oppsort}, with_context = false) }}
                         {% endif %}
                     </a>
                 </span>
@@ -54,7 +54,7 @@
             {% endif %}
             <div class="thread-list__container">
                 {% for thread in threads %}
-                    {% include 'search/results_threads_row.twig' %}
+                    {% include 'search_results_threads_row' %}
                 {% endfor %}
             </div>
             {% if results.show_inline_moderation %}
@@ -67,7 +67,7 @@
                         <input type="hidden" name="searchid" value="{{ results.sid }}" />
                         <input type="hidden" name="modtype" value="inlinethread" />
                         <div class="select-field">
-                            {{ include('partials/icon.twig', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
+                            {{ include('partials_icon', {icon: 'sort', class: 'select-field__icon'}, with_context = false) }}
                             <select name="action">
                                 <optgroup label="{{ lang.standard_mod_tools }}">
                                     <option value="multiclosethreads">{{ lang.close_threads }}</option>

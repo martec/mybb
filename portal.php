@@ -644,7 +644,7 @@ if(!empty($mybb->settings['portal_announcementsfid']))
 
 $plugins->run_hooks("portal_end");
 
-output_page(\MyBB\template('portal/portal.twig', [
+output_page(\MyBB\template('portal_portal', [
 	'portal' => $portal,
 	'onlinebots' => $onlinebots,
 	'onlinemembers' => $onlinemembers,

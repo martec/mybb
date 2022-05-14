@@ -17,6 +17,60 @@ use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 use Twig\Loader\LoaderInterface;
 
+class DatabaseTwigLoader implements \Twig\Loader\LoaderInterface
+{
+
+    public function getSourceContext(string $name): \Twig\Source
+    {
+        if (false === $source = $this->getValue('template', $name)) {
+            throw new \Twig\Error\LoaderError(sprintf('Template "%s" does not exist.', $name));
+        }
+
+        return new \Twig\Source($source, $name);
+    }
+
+    public function exists(string $name)
+    {
+        return $name === $this->getValue('title', $name).'_'.$GLOBALS['theme']['templateset'];
+    }
+
+    public function getCacheKey(string $name): string
+    {
+        return $name.'_'.$GLOBALS['theme']['templateset'];
+    }
+
+    public function isFresh(string $name, int $time): bool
+    {
+        if (false === $lastModified = $this->getValue('dateline', $name)) {
+            return false;
+        }
+
+        return $lastModified <= $time;
+    }
+
+    protected function getValue($var, $name)
+    {
+		// Only load master and global templates if template is needed in Admin CP
+		if(empty($GLOBALS['theme']['templateset']))
+		{
+			$query = $GLOBALS['db']->simple_select("templates", "template,title,dateline", "title='".$GLOBALS['db']->escape_string($name)."'");
+		}
+		else
+		{
+			$query = $GLOBALS['db']->simple_select("templates", "template,title,dateline", "title='".$GLOBALS['db']->escape_string($name)."' AND sid IN ('-2','-1','".(int)$GLOBALS['theme']['templateset']."')", array('order_by' => 'sid', 'order_dir' => 'DESC', 'limit' => 1));
+		}
+		
+		$gettemplate = $GLOBALS['db']->fetch_array($query);
+
+		if(!$gettemplate)
+		{
+			$gettemplate[$var] = "";
+		}
+
+        return $gettemplate[$var];
+    }
+}
+
 /** @property \MyBB\Application $app */
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -51,24 +105,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         });
 
         $this->app->bind(LoaderInterface::class, function () {
-            if (defined('IN_ADMINCP')) {
-                $paths = [
-                    __DIR__ . '/../../views/admin/base',
-                ];
-            } else {
-                // TODO: views for the current theme, it's parent, it's parent's parent, etc. should be here
-                // The filesystem loader works by using files from the first array entry.
-                // If a file doesn't exist, it looks in the second array entry and so on.
-                // This allows us to easily implement template inheritance.
-
-                $paths = [
-                    __DIR__ . '/../../views/base',
-                ];
-            }
-
-            // TODO: These paths should come from the theme system once it is written
-
-            return new FilesystemLoader($paths);
+            return new DatabaseTwigLoader();
         });
 
         $this->app->bind('twig.options', function () {

@@ -19,15 +19,15 @@
                     {% if mybb.usergroup.canmodcp and mybb.usergroup.canuseipsearch %}
                         <li class="list__item">
                             <a href="modcp.php?action=ipsearch&amp;ipaddress={{ pm.ipaddress }}&amp;search_users=1" class="button button--basic">
-                                {{ include('partials/icon.twig', {icon: 'users', class: 'button__icon fa-fw'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'users', class: 'button__icon fa-fw'}, with_context = false) }}
                                 <span class="button__text">{{ lang.search_ip_users }}</span>
                             </a>
                             <a href="modcp.php?action=ipsearch&amp;ipaddress={{ pm.ipaddress }}&amp;search_posts=1" class="button button--basic">
-                                {{ include('partials/icon.twig', {icon: 'comments', class: 'button__icon fa-fw'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'comments', class: 'button__icon fa-fw'}, with_context = false) }}
                                 <span class="button__text">{{ lang.search_ip_posts }}</span>
                             </a>
                             <a href="modcp.php?action=iplookup&amp;ipaddress={{ pm.ipaddress }}" onclick="MyBB.popupWindow('/modcp.php?action=iplookup&amp;ipaddress={{ pm.ipaddress }}&amp;modal=1'); return false;" class="button button--basic">
-                                {{ include('partials/icon.twig', {icon: 'info-circle', class: 'button__icon fa-fw'}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'info-circle', class: 'button__icon fa-fw'}, with_context = false) }}
                                 <span class="button__text">{{ lang.info_on_ip }}</span>
                             </a>
                         </li>

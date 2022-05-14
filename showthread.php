@@ -1406,7 +1406,7 @@ if($mybb->input['action'] == "thread")
 
 	$thread['pid'] = $pid;
 
-	output_page(\MyBB\template('showthread/showthread.twig', [
+	output_page(\MyBB\template('showthread_showthread', [
 		'thread' => $thread,
 		'forum' => $forum,
 		'poll' => $poll,

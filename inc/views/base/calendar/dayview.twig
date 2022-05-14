@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.calendar }} - {{ calendar.day }} {{ calendar.currentmonth }} {{ calendar.year }} - {{ mybb.settings.bbname }}</title>
@@ -13,11 +13,11 @@
             <div class="page-buttons">
                 {% if calendar_permissions.canaddevents %}
                     <a href="calendar.php?action=addevent&amp;calendar={{ calendar.cid }}&amp;day={{ calendar.day }}&amp;month={{ calendar.month }}&amp;year={{ calendar.year }}" class="button button--half-width">
-                        {{ include('partials/icon.twig', {icon: 'calendar-plus', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'calendar-plus', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.add_public_event }}</span>
                     </a>
                     <a href="calendar.php?action=addevent&amp;calendar={{ calendar.cid }}&amp;day={{ calendar.day }}&amp;month={{ calendar.month }}&amp;year={{ calendar.year }}&amp;private=1" class="button button--half-width">
-                        {{ include('partials/icon.twig', {icon: 'calendar-plus', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'calendar-plus', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.add_private_event }}</span>
                     </a>
                 {% endif %}
@@ -35,14 +35,14 @@
             </section>
         {% endif %}
         {% for event in events %}
-            {% include 'calendar/event_row.twig' %}
+            {% include 'calendar_event_row' %}
         {% else %}
             <section class="block">
                 <div class="alert alert--no-results alert--no-results-container">{{ lang.no_events }}</div>
             </section>
         {% endfor %}
         <footer class="page-footer">
-            {% include 'calendar/calendar_select.twig' %}
+            {% include 'calendar_calendar_select' %}
         </footer>
     </div>
 {% endblock body %}

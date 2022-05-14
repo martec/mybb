@@ -323,7 +323,7 @@ class CoreExtension extends AbstractExtension implements GlobalsInterface
             $this->plugins->run_hooks('my_date', $args);
         }
 
-        return $environment->render('partials/time.twig', [
+        return $environment->render('partials_time', [
             'iso_date' => $dateTime->format(\DateTime::RFC3339),
             'formatted_date' => $formattedDateString,
             'formatted_using_settings' => $formattedUsingSettings,
@@ -381,7 +381,7 @@ class CoreExtension extends AbstractExtension implements GlobalsInterface
      */
     public function buildBreadcrumbNavigation(Environment $twig): string
     {
-        return $twig->render('partials/breadcrumb.twig', [
+        return $twig->render('partials_breadcrumb', [
             'breadcrumbs' => $this->breadcrumbManager,
         ]);
     }
@@ -508,7 +508,7 @@ class CoreExtension extends AbstractExtension implements GlobalsInterface
             $multiPage['jump_url'] = fetch_page_url($url, 1);
         }
 
-        return $twig->render('partials/multipage.twig', [
+        return $twig->render('partials_multipage', [
             'multipage' => $multiPage,
             'page' => $page,
             'breadcrumb' => $breadcrumb,
@@ -539,12 +539,12 @@ class CoreExtension extends AbstractExtension implements GlobalsInterface
         $class = trim($class);
 
         if (empty($url)) {
-            return $twig->render('partials/default_avatar.twig', [
+            return $twig->render('partials_default_avatar', [
                 'class' => $class,
             ]);
         }
 
-        return $twig->render('partials/avatar.twig', [
+        return $twig->render('partials_avatar', [
             'url' => $url,
             'alt' => $alt,
             'class' => $class,

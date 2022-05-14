@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.poll_results }} - {{ mybb.settings.bbname }}</title>
@@ -17,7 +17,7 @@
                        <div class="poll__option">
                            {{ polloption.option|raw }}
                            {% if polloption.votestar == '*' %}
-                                {{ include('partials/icon.twig', {icon: 'check-square', class: 'poll__your-vote', title: lang.you_voted}, with_context = false) }}
+                                {{ include('partials_icon', {icon: 'check-square', class: 'poll__your-vote', title: lang.you_voted}, with_context = false) }}
                            {% endif %}
                        </div>
                        <div class="poll__count">

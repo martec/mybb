@@ -268,6 +268,6 @@ if(empty($usergrouplist))
 
 $plugins->run_hooks("showteam_end");
 
-output_page(\MyBB\template('showteam/showteam.twig', [
+output_page(\MyBB\template('showteam_showteam', [
 	'usergrouplist' => $usergrouplist,
 ]));

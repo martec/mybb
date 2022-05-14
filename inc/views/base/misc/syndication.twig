@@ -1,4 +1,4 @@
-{% extends 'layouts/master.twig' %}
+{% extends 'layouts_master' %}
 
 {% block head %}
     <title>{{ lang.syndication }} - {{ mybb.settings.bbname }}</title>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="form__submit">
                     <button class="button button--medium">
-                        {{ include('partials/icon.twig', {icon: 'rss-square', class: 'button__icon'}, with_context = false) }}
+                        {{ include('partials_icon', {icon: 'rss-square', class: 'button__icon'}, with_context = false) }}
                         <span class="button__text">{{ lang.syndication_generate }}</span>
                     </button>
                 </div>

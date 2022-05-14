@@ -1,5 +1,5 @@
 {# TO DO: THREAD RATINGS #}
-{# {% include 'forumdisplay/thread_rating.twig' %} #}
+{# {% include 'forumdisplay_thread_rating' %} #}
 
 <div class="row row--thread thread inline_row
     {% if thread.unreadpost and thread.moved == 0 %} thread--unread{% endif %}
@@ -31,7 +31,7 @@
             {# Go to unread link #}
             {% if thread.unreadpost and thread.moved == 0 %}
                 <a href="{{ thread.newpostlink }}" class="thread__status">
-                    {{ include('partials/icon.twig', {icon: 'circle', class: '', title: lang.goto_first_unread}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'circle', class: '', title: lang.goto_first_unread}, with_context = false) }}
                 </a>
             {% endif %}
 
@@ -44,38 +44,38 @@
 
                 {# Contains posts by you #}
                 {% if 'dot' in thread.folder.value %}
-                    {{ include('partials/icon.twig', {icon: 'user-circle', class: 'thread__icon fa-fw', title: lang.posts_by_you}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'user-circle', class: 'thread__icon fa-fw', title: lang.posts_by_you}, with_context = false) }}
                 {% endif %}
 
                 {# Attachment paperclip #}
                 {% if mybb.settings.enableattachments and thread.attachmentcount %}
                     {% set attachment_title = (thread.attachmentcount > 1) ? trans('attachment_count_multiple', thread.attachmentcount) : lang.attachment_count %}
-                    {{ include('partials/icon.twig', {icon: 'paperclip', class: 'thread__icon fa-fw', title: attachment_title}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'paperclip', class: 'thread__icon fa-fw', title: attachment_title}, with_context = false) }}
                 {% endif %}
 
                 {# Hot thread #}
                 {% if 'hot' in thread.folder.value %}
-                    {{ include('partials/icon.twig', {icon: 'fire', class: 'thread__icon fa-fw', title: lang.hot}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'fire', class: 'thread__icon fa-fw', title: lang.hot}, with_context = false) }}
                 {% endif %}
 
                 {# Poll #}
                 {% if thread.poll %}
-                    {{ include('partials/icon.twig', {icon: 'check-square', class: 'thread__icon fa-fw', title: lang.poll_prefix}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'check-square', class: 'thread__icon fa-fw', title: lang.poll_prefix}, with_context = false) }}
                 {% endif %}
 
                 {# Moved #}
                 {% if thread.moved %}
-                    {{ include('partials/icon.twig', {icon: 'arrow-right', class: 'thread__icon fa-fw', title: lang.moved_prefix}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'arrow-right', class: 'thread__icon fa-fw', title: lang.moved_prefix}, with_context = false) }}
                 {% endif %}
 
                 {# Closed #}
                 {% if thread.closed %}
-                    {{ include('partials/icon.twig', {icon: 'lock', class: 'thread__icon fa-fw', title: lang.closed}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'lock', class: 'thread__icon fa-fw', title: lang.closed}, with_context = false) }}
                 {% endif %}
 
                 {# Sticky #}
                 {% if thread.sticky %}
-                    {{ include('partials/icon.twig', {icon: 'thumbtack', class: 'thread__icon thread__icon--sticky fa-fw', title: lang.sticky}, with_context = false) }}
+                    {{ include('partials_icon', {icon: 'thumbtack', class: 'thread__icon thread__icon--sticky fa-fw', title: lang.sticky}, with_context = false) }}
                 {% endif %}
             </span>
         </h3>
@@ -122,5 +122,5 @@
             <a href="{{ thread.lastpostlink }}" class="thread__latest-post__date">{{ thread.lastpostdate|raw }}</a>
         </p>
     </div>
-    {% include 'forumdisplay/thread_modbit.twig' %}
+    {% include 'forumdisplay_thread_modbit' %}
 </div>
